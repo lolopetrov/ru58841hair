@@ -25,7 +25,7 @@ title: "MinoxidilBG – Миноксидил срещу косопад"
 
 Научи повече за Миноксидил, съвети за употреба и лични истории:  
 
-- [Миноксидил за мъже – какво да очаквате](minoxidil/_posts/minoxidil-za-mazhe.markdown)  
+- [Миноксидил за мъже – какво да очаквате](/minoxidil/_posts/minoxidil-za-mazhe.markdown)  
 - [Миноксидил за жени – безопасност и ефект](/blog/minoxidil-za-zheni)  
 - [Резултати от Миноксидил – реални примери](/blog/minoxidil-rezultati)  
 
