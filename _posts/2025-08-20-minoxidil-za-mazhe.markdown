@@ -2,7 +2,7 @@
 layout: post
 title: "Миноксидил за мъже – какво да очаквате"
 date: 2025-08-20
-permalink: /minoxidil-za-mazhe/
+permalink: /2025/0820/minoxidil-za-mazhe/
 ---
 
 Миноксидилът е едно от най-популярните решения срещу косопад при мъжете.  
