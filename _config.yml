@@ -27,6 +27,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/minoxidilbg" # the subpath of your site, e.g. /blog
 url: "https://lolopetrov.github.io/minoxidilbg/"
 # url: "https://github.com/lolopetrov/blog/" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: /:year/:month/:day/:title:output_ext
 
 
 twitter_username: btctoday100k
