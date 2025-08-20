@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Миноксидил за мъже – какво да очаквате"
-date: 2025-08-20
+
 permalink: /minoxidil-za-mazhe/
 ---
 
