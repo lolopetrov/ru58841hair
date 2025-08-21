@@ -33,6 +33,16 @@ url: "https://lolopetrov.github.io/minoxidilbg"
 permalink: /:year/:month/:day/:title:output_ext
 
 
+
+seo:
+  type: website
+  name: "MinoxidilBG"
+  description: "Миноксидил срещу косопад за мъже и жени"
+  twitter:
+    username: "minoxidilbg"
+  facebook:
+    app_id: ""
+
 twitter_username: btctoday100k
 github_username:  lolopetrov
 
