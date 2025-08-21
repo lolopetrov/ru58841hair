@@ -1,6 +1,6 @@
 ---
-layout: home
-title: "MinoxidilBG – Миноксидил срещу косопад"
+layout: page
+title: "Миноксидил срещу косопад"
 permalink: /
 ---
 
