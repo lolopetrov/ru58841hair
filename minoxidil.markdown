@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Миноксидил
-permalink: /about/
+permalink: /minoxidil/
 ---
 
 
