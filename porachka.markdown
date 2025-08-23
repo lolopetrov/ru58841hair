@@ -16,7 +16,7 @@ permalink: /porachka/
   <!-- envío en iframe oculto para evitar CORS -->
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-  <form id="orderForm" action="https://script.google.com/macros/s/AKfycbx3LACEr89UZYfGbTGkmTX9hSDCMktPCOau_LoiZkbwEO84aYtWhFGHf8WI06bWSyNk/exec" method="POST" target="hidden_iframe" style="display:block;gap:12px;">
+  <form id="orderForm" action="  https://script.google.com/macros/s/AKfycbwn5jkvg5_J6_dZlw8GZnQMD9W3mvo_cVZd10yanUkmj2xngaTpoFE3Obr8wpBseCCW/exec" method="POST" target="hidden_iframe" style="display:block;gap:12px;">
     <label style="display:block;margin:10px 0;">
       Име и фамилия:
       <input type="text" name="full_name" required
