@@ -1,8 +1,8 @@
 
 ---
-layout: page
-title: Поръчка
-permalink: /porachka/
+layout:page
+title:Поръчка
+permalink:/porachka/
 ---
 
 
