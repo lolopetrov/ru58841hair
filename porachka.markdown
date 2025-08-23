@@ -1,6 +1,6 @@
 
 ---
-layout: home
+layout: page
 title: Поръчка
 permalink: /porachka/
 ---
