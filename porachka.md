@@ -5,7 +5,7 @@ permalink: /porachka/
 ---
 
 <div style="max-width:720px;margin:auto">
-  <h2>оръчай Minoxidil 5%</h2>
+  <h2>Поръчай Minoxidil 5%</h2>
   <p>Плащане: наложен платеж – без риск за Вас ✅</p>
 
   <!-- mensaje de éxito -->
