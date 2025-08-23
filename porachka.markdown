@@ -10,7 +10,7 @@ permalink: /porachka/
 
   <!-- mensaje de éxito -->
   <div id="successMsg" style="display:none;padding:14px;border:1px solid #28a745;border-radius:8px;margin:12px 0;">
-    ✅ Благодарим за поръчката! Ще получите потвърждение по имейл.
+    ✅ Благодарим за поръчката  Ще получите потвърждение по имейл.
   </div>
 
   <!-- envío en iframe oculto para evitar CORS -->
