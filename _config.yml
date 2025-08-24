@@ -4,8 +4,8 @@ description: "Миноксидил 2% и 5% за мъже и жени. Всич�
 author: "MinoxidilBG"
 lang: "bg"
 timezone: Europe/Sofia
-baseurl: "" # остави празно, защото сайтът е на root
-url: "https://lolopetrov.github.io/minoxidilbg"
+baseurl: "/minoxidilbg" # остави празно, защото сайтът е на root
+url: "https://lolopetrov.github.io"
 permalink: /:year/:month/:day/:title:output_ext
 
 seo:
