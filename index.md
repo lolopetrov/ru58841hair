@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: home
 title: "Миноксидил за косопад – 2% и 5% разтвор за мъже и жени"
 permalink: /
 ---
