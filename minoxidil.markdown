@@ -10,4 +10,4 @@ permalink: /minoxidil/
 
 - [Миноксидил за мъже – какво да очаквате](/minoxidilbg/minoxidil-za-mazhe/)  
 - [Миноксидил за жени – безопасност и ефект](2025-08-25-minoxidil-za-zheni.markdown)   
-- [Резултати от Миноксидил – реални примери](2025-08-25-rukovodstvo-minoxidil.markdown)  
+- [Ръководцтво за Миноксидил](2025-08-25-rukovodstvo-minoxidil.markdown)  
