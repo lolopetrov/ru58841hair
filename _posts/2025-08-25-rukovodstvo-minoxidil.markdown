@@ -2,7 +2,6 @@
 layout: post
 title: "Ръководство за Миноксидил"
 date: 2025-08-25
-categories: [Миноксидил, Косопад, Здраве]
 permalink: /rukovodstvo-minoxidil/
 ---
 
