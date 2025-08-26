@@ -70,7 +70,9 @@ permalink: /
 
 Често миноксидил се комбинира с други продукти и терапии против косопад за още по-добри резултати.  
 
-![Миноксидил 2% и 5%](assets/images/minoxidil-kosopad-5-procenta.gif)
+
+![Миноксидил 5%](/assets/images/minoxidil-kosopad-5-procenta.gif)
+
 
 ---
 
