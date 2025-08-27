@@ -2,8 +2,7 @@
 layout: post
 title: "Ръководство за Миноксидил"
 date: 2025-08-25
-permalink: /minoxidilbg/2025-08-25-rukovodstvo-minoxidil
-
+permalink: /rukovodstvo-minoxidil/
 ---
 
 # Ръководство за Миноксидил
