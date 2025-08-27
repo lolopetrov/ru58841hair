@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "Ръководство за Миноксидил"
 date: 2025-08-25
 permalink: /rukovodstvo-minoxidil/
