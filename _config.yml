@@ -4,8 +4,9 @@ description: "Миноксидил 2% и 5% за мъже и жени. Всич�
 author: "Тел. 0878 914 807"
 lang: "bg"
 timezone: Europe/Sofia
-baseurl: "/minoxidilbg" # остави празно, защото сайтът е на root
-url: "https://lolopetrov.github.io"
+url: "https://minoxidilbg.com"
+baseurl: ""
+
 permalink: /:year/:month/:day/:title:output_ext
 
 keywords:
