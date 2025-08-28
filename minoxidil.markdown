@@ -9,5 +9,5 @@ permalink: /minoxidil/
 Научи повече за Миноксидил, съвети за употреба:  
 
 - [Миноксидил за мъже – какво да очаквате](/minoxidil-za-mazhe/)  
-- [Миноксидил за жени – безопасност и ефект](/minoxidilbg/minoxidil-za-zheni/)   
-- [Ръководство за Миноксидил](/minoxidilbg/rukovodstvo-minoxidil/)
+- [Миноксидил за жени – безопасност и ефект](/minoxidil-za-zheni/)   
+- [Ръководство за Миноксидил](/rukovodstvo-minoxidil/)
