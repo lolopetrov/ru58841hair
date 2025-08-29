@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Блокиране на ненужни технически директории (ако имаш)
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Sitemap
+Sitemap: https://www.ru58841hair.com/sitemap.xml
+
