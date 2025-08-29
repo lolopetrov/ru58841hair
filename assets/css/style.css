@@ -1,75 +1,9 @@
-/* --- Общи стилове --- */
+---
+---
+
+@import "minima";
+
+/* Tus cambios personalizados */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
-}
-
-/* --- Хедър --- */
-header {
-  background: #007acc;
-  color: white;
-  padding: 1rem;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-header h1 a {
-  color: white;
-  text-decoration: none;
-}
-
-nav {
-  margin-top: 0.5rem;
-}
-
-nav a {
-  color: white;
-  margin-right: 1rem;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* --- Основно съдържание --- */
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-/* Заглавия */
-h2 {
-  color: #007acc;
-}
-
-/* Линкове */
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* --- Футър --- */
-footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #666;
-  background: #f1f1f1;
+  background: #f5f5f5;
 }
