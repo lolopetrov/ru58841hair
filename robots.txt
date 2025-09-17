@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://github.com/lolopetrov/ru58841hair/sitemap.xml
