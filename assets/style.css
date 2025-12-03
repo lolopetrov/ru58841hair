@@ -83,17 +83,13 @@ button:hover {
 /* ----- Контейнер за изображение ----- */
 .product-image {
   width: 100%;
-  max-width: 360px;
-  height: 360px;
-  background: #eee;
+  max-width: 340px;
+  height: auto;
   border-radius: 12px;
+  display: block;
   margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #777;
-  font-size: 15px;
 }
+
 
 /* ----- Скрити елементи ----- */
 .hidden {
