@@ -16,7 +16,7 @@
 <h1>Поръчка на RU58841 5%</h1>
 <p>Завърши поръчката за 20 секунди.</p>
 
-<img src="../assets/ru58841.webp" class="product-image" alt="RU58841 5% продукт">
+<img src="../assets/ru58841.webp" class="product-image" alt="RU58841 5%">
 
 <form action="https://formsubmit.co/ТВОЯ_EMAIL" method="POST">
 
@@ -39,6 +39,7 @@
   <option value="address">До адрес</option>
 </select>
 
+<!-- При ОФИС -->
 <div id="courierField" class="hidden">
   <h2>Куриер</h2>
   <select id="courierSelect" name="courier">
@@ -50,16 +51,20 @@
 
 <div id="officeField" class="hidden">
   <h2>Офис на куриера (град + офис)</h2>
-  <textarea id="officeTA" name="courier_office" placeholder="Пример: София, Спиди – Офис Витоша" rows="2"></textarea>
+  <textarea id="officeTA" name="courier_office"
+    placeholder="Пример: София, Спиди – Офис Витоша" rows="3"></textarea>
 </div>
 
-<div id="addressField">
-  <h2>Адрес</h2>
-  <textarea id="addressTA" name="address" placeholder="Пример: София, ул. Иван Вазов 15, ап. 4" rows="2" required></textarea>
+<!-- При АДРЕС -->
+<div id="addressField" class="hidden">
+  <h2>Адрес за доставка</h2>
+  <textarea id="addressTA" name="address"
+    placeholder="Пример: София, ул. Иван Вазов 15, ап. 4" rows="3"></textarea>
 </div>
 
 <!-- 3. Контакти -->
 <h2>3. Данни за контакт</h2>
+
 <input type="text" name="name" placeholder="Име и фамилия" required>
 <input type="text" name="phone" placeholder="Телефон" required>
 <input type="email" name="email" placeholder="Email" required>
@@ -69,15 +74,13 @@
 
 <label>
   <input type="checkbox" id="nftCheckbox" name="nft" value="Да">
-  Искам NFT бележка към поръчката (не влияе на цената)
+  Искам NFT бележка към поръчката
 </label>
 
 <div id="walletField" class="hidden">
   <h2>Wallet адрес (Polygon)</h2>
   <input type="text" id="walletInput" name="wallet" placeholder="0x..." pattern="^0x[a-fA-F0-9]{40}$">
-  <p style="font-size:14px;color:#777;margin-top:4px;">
-    * Въведете валиден wallet (0x + 40 hex символа)
-  </p>
+  <p style="font-size:14px;color:#777;">* Трябва да бъде валиден wallet</p>
 </div>
 
 <div id="priceBoxBottom">Изберете количество…</div>
@@ -97,76 +100,62 @@
 </footer>
 
 <script>
-// Auto-expand textarea
-document.querySelectorAll("textarea").forEach(el => {
-  function autoExpand() {
-    el.style.height = "auto";
-    el.style.height = el.scrollHeight + "px";
-  }
-  el.addEventListener("input", autoExpand);
-  autoExpand();
+// Auto-expand
+document.querySelectorAll("textarea").forEach(el=>{
+  function expand(){ el.style.height="auto"; el.style.height=el.scrollHeight+"px"; }
+  el.addEventListener("input",expand); expand();
 });
 
-// Price logic
-const priceBox = document.getElementById('priceBox');
-const priceBoxBottom = document.getElementById('priceBoxBottom');
-const quantitySelect = document.getElementById('quantitySelect');
-
-function updatePrice() {
-  const q = quantitySelect.value;
-  let price = 0;
-  if (q === "1") price = 33;
-  if (q === "2") price = 57;
-  if (q === "3") price = 67;
-
-  if (!q) {
-    priceBox.textContent = "Изберете количество…";
-    priceBoxBottom.textContent = "Изберете количество…";
-  } else {
-    priceBox.innerHTML = `Крайна цена: <strong>${price} лв</strong>`;
-    priceBoxBottom.innerHTML = `Крайна цена: <strong>${price} лв</strong>`;
+// PRICE
+const priceBox=document.getElementById('priceBox');
+const priceBoxBottom=document.getElementById('priceBoxBottom');
+document.getElementById('quantitySelect').addEventListener('change',()=> {
+  let q=quantitySelect.value, p=0;
+  if(q==="1") p=33;
+  if(q==="2") p=57;
+  if(q==="3") p=67;
+  if(!q){ priceBox.textContent="Изберете количество…"; priceBoxBottom.textContent="Изберете количество…"; }
+  else{
+    priceBox.innerHTML=`Крайна цена: <strong>${p} лв</strong>`;
+    priceBoxBottom.innerHTML=`Крайна цена: <strong>${p} лв</strong>`;
   }
-}
-quantitySelect.addEventListener('change', updatePrice);
+});
 
-// Delivery logic
-const deliveryType = document.getElementById('deliveryType');
-const courierField = document.getElementById('courierField');
-const officeField = document.getElementById('officeField');
-const addressField = document.getElementById('addressField');
+// DELIVERY LOGIC
+const deliveryType=document.getElementById('deliveryType');
+const courierField=document.getElementById('courierField');
+const officeField=document.getElementById('officeField');
+const addressField=document.getElementById('addressField');
 
-deliveryType.addEventListener('change', () => {
-  if (deliveryType.value === "office") {
+deliveryType.addEventListener('change',()=>{
+  if(deliveryType.value==="office"){
     courierField.classList.remove('hidden');
     officeField.classList.remove('hidden');
-    addressField.classList.remove('hidden');
-  } else if (deliveryType.value === "address") {
+    addressField.classList.add('hidden');
+    addressTA.required=false;
+  }
+  if(deliveryType.value==="address"){
     courierField.classList.add('hidden');
     officeField.classList.add('hidden');
     addressField.classList.remove('hidden');
+    addressTA.required=true;
   }
 });
 
-// NFT logic
-const nftCheckbox = document.getElementById('nftCheckbox');
-const walletField = document.getElementById('walletField');
-const walletInput = document.getElementById('walletInput');
+// NFT
+const nftCheckbox=document.getElementById('nftCheckbox');
+const walletField=document.getElementById('walletField');
+const walletInput=document.getElementById('walletInput');
 
-nftCheckbox.addEventListener('change', () => {
-  if (nftCheckbox.checked) {
+nftCheckbox.addEventListener('change',()=>{
+  if(nftCheckbox.checked){
     walletField.classList.remove('hidden');
-    walletInput.required = true;
+    walletInput.required=true;
   } else {
     walletField.classList.add('hidden');
-    walletInput.required = false;
-    walletInput.value = "";
+    walletInput.required=false;
+    walletInput.value="";
   }
-});
-
-// Wallet validation
-walletInput?.addEventListener("input", () => {
-  const valid = /^0x[a-fA-F0-9]{40}$/.test(walletInput.value);
-  walletInput.setCustomValidity(valid ? "" : "Невалиден Polygon/Ethereum адрес");
 });
 </script>
 
