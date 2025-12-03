@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Поръчка RU58841 5%</title>
+
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+</head>
+
+<body>
+
+<h1>Поръчка на RU58841 5%</h1>
+<p>Завърши поръчката за 20 секунди.</p>
+
+<img src="../assets/ru58841.jpg" class="product-image" alt="RU58841 5% продукт">
+
+<form action="https://formsubmit.co/ТВОЯ_EMAIL" method="POST">
+
+<!-- 1. Количество -->
+<h2>1. Избери количество</h2>
+<select id="quantitySelect" name="quantity" required>
+  <option value="">Избери…</option>
+  <option value="1">1 брой</option>
+  <option value="2">2 броя</option>
+  <option value="3">3 броя</option>
+</select>
+
+<div id="priceBox">Изберете количество…</div>
+
+<!-- 2. Доставка -->
+<h2>2. Тип доставка</h2>
+<select id="deliveryType" name="delivery_type" required>
+  <option value="">Избери…</option>
+  <option value="office">До офис на куриера</option>
+  <option value="address">До адрес</option>
+</select>
+
+<div id="courierField" class="hidden">
+  <h2>Куриер</h2>
+  <select id="courierSelect" name="courier">
+    <option value="">Избери…</option>
+    <option value="Спиди">Спиди</option>
+    <option value="Еконт">Еконт</option>
+  </select>
+</div>
+
+<div id="officeField" class="hidden">
+  <h2>Офис на куриера (град + офис)</h2>
+  <textarea id="officeTA" name="courier_office" placeholder="Пример: София, Спиди – Офис Витоша" rows="2"></textarea>
+</div>
+
+<div id="addressField">
+  <h2>Адрес</h2>
+  <textarea id="addressTA" name="address" placeholder="Пример: София, ул. Иван Вазов 15, ап. 4" rows="2" required></textarea>
+</div>
+
+<!-- 3. Контакти -->
+<h2>3. Данни за контакт</h2>
+<input type="text" name="name" placeholder="Име и фамилия" required>
+<input type="text" name="phone" placeholder="Телефон" required>
+<input type="email" name="email" placeholder="Email" required>
+
+<!-- 4. NFT -->
+<h2>4. Допълнителни опции</h2>
+
+<label>
+  <input type="checkbox" id="nftCheckbox" name="nft" value="Да">
+  Искам NFT бележка към поръчката (не влияе на цената)
+</label>
+
+<div id="walletField" class="hidden">
+  <h2>Wallet адрес (Polygon)</h2>
+  <input type="text" id="walletInput" name="wallet" placeholder="0x..." pattern="^0x[a-fA-F0-9]{40}$">
+  <p style="font-size:14px;color:#777;margin-top:4px;">
+    * Въведете валиден wallet (0x + 40 hex символа)
+  </p>
+</div>
+
+<div id="priceBoxBottom">Изберете количество…</div>
+
+<h2>5. Потвърждение</h2>
+<button type="submit">Изпрати поръчката</button>
+
+<input type="hidden" name="_next" value="https://ru58841hair.com/thanks.html">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="product" value="RU58841 5%">
+</form>
+
+<footer style="margin-top:40px;text-align:center;color:#999;font-size:12px;">
+  © 2025 ru58841hair.com • 
+  <a href="/privacy.html" style="color:#999;text-decoration:none;">Политика за лични данни</a> • 
+  <a href="/nft-note.html" style="color:#999;text-decoration:none;">NFT Бележка</a>
+</footer>
+
+<script>
+// Auto-expand textarea
+document.querySelectorAll("textarea").forEach(el => {
+  function autoExpand() {
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  }
+  el.addEventListener("input", autoExpand);
+  autoExpand();
+});
+
+// Price logic
+const priceBox = document.getElementById('priceBox');
+const priceBoxBottom = document.getElementById('priceBoxBottom');
+const quantitySelect = document.getElementById('quantitySelect');
+
+function updatePrice() {
+  const q = quantitySelect.value;
+  let price = 0;
+  if (q === "1") price = 33;
+  if (q === "2") price = 57;
+  if (q === "3") price = 67;
+
+  if (!q) {
+    priceBox.textContent = "Изберете количество…";
+    priceBoxBottom.textContent = "Изберете количество…";
+  } else {
+    priceBox.innerHTML = `Крайна цена: <strong>${price} лв</strong>`;
+    priceBoxBottom.innerHTML = `Крайна цена: <strong>${price} лв</strong>`;
+  }
+}
+quantitySelect.addEventListener('change', updatePrice);
+
+// Delivery logic
+const deliveryType = document.getElementById('deliveryType');
+const courierField = document.getElementById('courierField');
+const officeField = document.getElementById('officeField');
+const addressField = document.getElementById('addressField');
+
+deliveryType.addEventListener('change', () => {
+  if (deliveryType.value === "office") {
+    courierField.classList.remove('hidden');
+    officeField.classList.remove('hidden');
+    addressField.classList.remove('hidden');
+  } else if (deliveryType.value === "address") {
+    courierField.classList.add('hidden');
+    officeField.classList.add('hidden');
+    addressField.classList.remove('hidden');
+  }
+});
+
+// NFT logic
+const nftCheckbox = document.getElementById('nftCheckbox');
+const walletField = document.getElementById('walletField');
+const walletInput = document.getElementById('walletInput');
+
+nftCheckbox.addEventListener('change', () => {
+  if (nftCheckbox.checked) {
+    walletField.classList.remove('hidden');
+    walletInput.required = true;
+  } else {
+    walletField.classList.add('hidden');
+    walletInput.required = false;
+    walletInput.value = "";
+  }
+});
+
+// Wallet validation
+walletInput?.addEventListener("input", () => {
+  const valid = /^0x[a-fA-F0-9]{40}$/.test(walletInput.value);
+  walletInput.setCustomValidity(valid ? "" : "Невалиден Polygon/Ethereum адрес");
+});
+</script>
+
+</body>
+</html>
