@@ -9,6 +9,17 @@
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
+
+<style>
+/* Скриване без празни полета */
+.hidden {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -31,7 +42,7 @@
 
 <div id="priceBox">Изберете количество…</div>
 
-<!-- 2. Доставка -->
+<!-- 2. Тип доставка -->
 <h2>2. Тип доставка</h2>
 <select id="deliveryType" name="delivery_type" required>
   <option value="">Избери…</option>
@@ -39,7 +50,7 @@
   <option value="address">До адрес</option>
 </select>
 
-<!-- При ОФИС -->
+<!-- При офис -->
 <div id="courierField" class="hidden">
   <h2>Куриер</h2>
   <select id="courierSelect" name="courier">
@@ -51,25 +62,23 @@
 
 <div id="officeField" class="hidden">
   <h2>Офис на куриера (град + офис)</h2>
-  <textarea id="officeTA" name="courier_office"
-    placeholder="Пример: София, Спиди – Офис Витоша" rows="3"></textarea>
+  <textarea id="officeTA" name="courier_office" placeholder="Пример: София, Спиди – Офис Витоша" rows="3"></textarea>
 </div>
 
-<!-- При АДРЕС -->
+<!-- При адрес -->
 <div id="addressField" class="hidden">
   <h2>Адрес за доставка</h2>
-  <textarea id="addressTA" name="address"
-    placeholder="Пример: София, ул. Иван Вазов 15, ап. 4" rows="3"></textarea>
+  <textarea id="addressTA" name="address" placeholder="Пример: София, ул. Иван Вазов 15, ап. 4" rows="3"></textarea>
 </div>
 
-<!-- 3. Контакти -->
+<!-- Контакти -->
 <h2>3. Данни за контакт</h2>
 
 <input type="text" name="name" placeholder="Име и фамилия" required>
 <input type="text" name="phone" placeholder="Телефон" required>
 <input type="email" name="email" placeholder="Email" required>
 
-<!-- 4. NFT -->
+<!-- NFT -->
 <h2>4. Допълнителни опции</h2>
 
 <label>
@@ -95,21 +104,19 @@
 
 <footer style="margin-top:40px;text-align:center;color:#999;font-size:12px;">
   © 2025 ru58841hair.com • 
-  <a href="/privacy.html" style="color:#999;text-decoration:none;">Политика за лични данни</a> • 
-  <a href="/nft-note.html" style="color:#999;text-decoration:none;">NFT Бележка</a>
+  <a href="/privacy.html" style="color:#999;text-decoration:none;">Политика</a> • 
+  <a href="/nft-note.html" style="color:#999;text-decoration:none;">NFT бележка</a>
 </footer>
 
 <script>
-// Auto-expand
+// Auto-expand textarea
 document.querySelectorAll("textarea").forEach(el=>{
   function expand(){ el.style.height="auto"; el.style.height=el.scrollHeight+"px"; }
   el.addEventListener("input",expand); expand();
 });
 
 // PRICE
-const priceBox=document.getElementById('priceBox');
-const priceBoxBottom=document.getElementById('priceBoxBottom');
-document.getElementById('quantitySelect').addEventListener('change',()=> {
+quantitySelect.addEventListener('change',()=>{
   let q=quantitySelect.value, p=0;
   if(q==="1") p=33;
   if(q==="2") p=57;
@@ -122,11 +129,6 @@ document.getElementById('quantitySelect').addEventListener('change',()=> {
 });
 
 // DELIVERY LOGIC
-const deliveryType=document.getElementById('deliveryType');
-const courierField=document.getElementById('courierField');
-const officeField=document.getElementById('officeField');
-const addressField=document.getElementById('addressField');
-
 deliveryType.addEventListener('change',()=>{
   if(deliveryType.value==="office"){
     courierField.classList.remove('hidden');
@@ -142,11 +144,7 @@ deliveryType.addEventListener('change',()=>{
   }
 });
 
-// NFT
-const nftCheckbox=document.getElementById('nftCheckbox');
-const walletField=document.getElementById('walletField');
-const walletInput=document.getElementById('walletInput');
-
+// NFT logic
 nftCheckbox.addEventListener('change',()=>{
   if(nftCheckbox.checked){
     walletField.classList.remove('hidden');
