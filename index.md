@@ -4,6 +4,12 @@ title: "RU58841 България — 5% и 10% разтвор"
 description: "RU58841 5% и 10% разтвор в България. Подходящ при косопад и алопеция. Бърза доставка с наложен платеж. Поръчайте онлайн."
 ---
 
+<meta property="og:title" content="RU58841 България — 5% и 10% разтвор">
+<meta property="og:description" content="RU58841 за косопад и алопеция. Бърза доставка, 5% и 10% разтвор.">
+<meta property="og:image" content="https://ru58841hair.com/assets/ru58841.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ru58841hair.com">
+
 <link rel="stylesheet" href="assets/style.css">
 
 <nav class="topnav">
