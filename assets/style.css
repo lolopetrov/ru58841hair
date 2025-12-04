@@ -135,3 +135,31 @@ button:hover {
     font-size: 20px;
   }
 }
+
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 14px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.topnav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.topnav a:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .topnav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 0;
+  }
+}
