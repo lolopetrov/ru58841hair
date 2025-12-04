@@ -3,73 +3,128 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Поръчка — RU58841 5%</title>
 <link rel="stylesheet" href="../assets/style.css">
-</head>
+<link rel="icon" href="../assets/favicon.png">
 
+</head>
 <body>
+
+<nav class="topnav">
+  <a href="/index.html">Начало</a>
+  <a href="/how-it-works.html">Как действа</a>
+  <a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a>
+  <a href="/ru58841-side-effects.html">Странични ефекти</a>
+  <a href="/ru58841-results.html">Резултати</a>
+</nav>
 
 <h1>Поръчка — RU58841 5%</h1>
 
+<img src="../assets/ru58841.webp" class="product-image">
+
+<!-- Динамична цена (опростена) -->
+<div id="priceBox">Цена: <b>33 лв</b></div>
+
 <form id="orderForm">
 
-  <select name="qty" required>
-    <option value="1">1 брой — 69 лв</option>
-    <option value="2">2 броя — 125 лв</option>
-    <option value="3">3 броя — 165 лв</option>
+  <h2>1. Количество</h2>
+  <select name="qty" id="qtySelect" required>
+    <option value="1">1 брой</option>
+    <option value="2">2 броя</option>
+    <option value="3">3 броя</option>
   </select>
 
-  <select name="delivery" id="deliverySelect" required>
-    <option value="office">До офис на куриер</option>
+  <h2>2. Тип доставка</h2>
+  <select name="delivery" id="delivery" required>
+    <option value="office">До офис на куриера</option>
     <option value="address">До адрес</option>
   </select>
 
-  <input type="text" name="address" id="officeBox" placeholder="Офис на куриер">
+  <div id="officeField">
+    <input type="text" name="address" placeholder="Офис на куриер (Спиди/Еконт)">
+  </div>
 
-  <input type="text" name="address_full" id="addrBox" class="hidden" placeholder="Адрес за доставка">
+  <div id="homeField" class="hidden">
+    <input type="text" name="address_full" placeholder="Адрес за доставка">
+  </div>
 
+  <h2>3. Контакт</h2>
   <input type="text" name="name" placeholder="Име и фамилия" required>
   <input type="tel" name="phone" placeholder="Телефон" required>
-  <input type="email" name="email" placeholder="Email" required>
+  <input type="email" name="email" placeholder="Email (по избор)">
 
+  <h2>4. NFT Бележка (по желание)</h2>
   <select name="nft" id="nftSelect">
-    <option value="no">Без NFT бележка</option>
+    <option value="no">Без NFT</option>
     <option value="yes">Желая NFT бележка</option>
   </select>
 
-  <input type="text" name="wallet" id="walletBox" class="hidden" placeholder="Polygon 0x...">
+  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
 
-  <button type="submit">Изпрати</button>
+  <button type="submit">Изпрати поръчката</button>
 </form>
 
+
 <script>
-document.getElementById("deliverySelect").addEventListener("change", function(){
-  if (this.value === "office") {
-    officeBox.classList.remove("hidden");
-    addrBox.classList.add("hidden");
+// --- Динамична цена (опростена) ---
+const qtySelect = document.getElementById("qtySelect");
+const priceBox = document.getElementById("priceBox");
+
+function updatePrice() {
+  let qty = parseInt(qtySelect.value);
+  let price = 33;
+  if (qty === 2) price = 57;
+  if (qty === 3) price = 67;
+  priceBox.innerHTML = `Цена: <b>${price} лв</b>`;
+}
+qtySelect.addEventListener("change", updatePrice);
+updatePrice();
+
+
+// --- Офис / Адрес ---
+const delivery = document.getElementById("delivery");
+const officeField = document.getElementById("officeField");
+const homeField = document.getElementById("homeField");
+
+delivery.addEventListener("change", () => {
+  if (delivery.value === "office") {
+    officeField.classList.remove("hidden");
+    homeField.classList.add("hidden");
   } else {
-    officeBox.classList.add("hidden");
-    addrBox.classList.remove("hidden");
+    officeField.classList.add("hidden");
+    homeField.classList.remove("hidden");
   }
 });
 
-document.getElementById("nftSelect").addEventListener("change", function(){
-  walletBox.classList.toggle("hidden", this.value !== "yes");
+
+// --- NFT поле ---
+const nftSelect = document.getElementById("nftSelect");
+const walletField = document.getElementById("walletField");
+
+nftSelect.addEventListener("change", () => {
+  if (nftSelect.value === "yes") {
+    walletField.classList.remove("hidden");
+  } else {
+    walletField.classList.add("hidden");
+  }
 });
 
-document.getElementById("orderForm").addEventListener("submit", async (e)=>{
+
+// --- Изпращане към Google Apps Script ---
+document.getElementById("orderForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const form = new FormData(e.target);
-  form.append("product","RU58841 5%");
+  const formData = new FormData(e.target);
+  formData.append("product", "RU58841 5%");
 
-  await fetch("YOUR_SCRIPT_URL_HERE", {
-    method:"POST",
-    mode:"no-cors",
-    body:form
+  await fetch("https://script.google.com/macros/s/AKfycbxz1twwsVm82_eSVic3eMzG9IKDZX5jTq_CHlPbyJi3v3j1AhTR47NaoQyllo-pP7_jIQ/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
   });
 
-  window.location.href="../thanks.html";
+  window.location.href = "../thanks.html";
 });
 </script>
 
