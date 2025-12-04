@@ -43,13 +43,13 @@
 </form>
 
 <script>
-// --- Променливи
+// --- Вземаме елементите (важно!)
 const deliverySelect = document.getElementById("deliverySelect");
 const officeBox = document.getElementById("officeBox");
 const addrBox   = document.getElementById("addrBox");
 const walletBox = document.getElementById("walletBox");
 
-// --- Показване/скриване на адреси
+// --- Адрес според типа доставка
 deliverySelect.addEventListener("change", function(){
   if (this.value === "office") {
     officeBox.classList.remove("hidden");
@@ -60,12 +60,12 @@ deliverySelect.addEventListener("change", function(){
   }
 });
 
-// --- NFT Wallet
+// --- Показване на Wallet поле
 document.getElementById("nftSelect").addEventListener("change", function(){
   walletBox.classList.toggle("hidden", this.value !== "yes");
 });
 
-// --- Изпращане към Google Script
+// --- Изпращане на заявката към Google Script
 document.getElementById("orderForm").addEventListener("submit", async (e)=>{
   e.preventDefault();
 
@@ -75,7 +75,7 @@ document.getElementById("orderForm").addEventListener("submit", async (e)=>{
   await fetch("https://script.google.com/macros/s/AKfycbxz1twvsVm82_eSVic3eMcZ9IKDZXSjTq_CHIpbyJi3v3j1AhTR47NaoQyIlo-pP7_ljQ/exec", {
     method:"POST",
     mode:"no-cors",
-    body:form
+    body: form
   });
 
   window.location.href="../thanks.html";
