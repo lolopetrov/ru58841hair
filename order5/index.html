@@ -11,17 +11,21 @@
 <style>
 .hidden { display: none; }
 button { cursor: pointer; }
+
 form select, form input {
   width: 100%;
   padding: 12px;
   margin-bottom: 10px;
+  box-sizing: border-box;
 }
+
 form button {
   width: 100%;
   padding: 12px;
   background: black;
   color: white;
   border: none;
+  font-size: 16px;
 }
 </style>
 </head>
@@ -46,17 +50,18 @@ form button {
 <!-- FORMULARIO WEB3FORMS -->
 <form action="https://api.web3forms.com/submit" method="POST">
 
-  <!-- YOUR ACCESS KEY -->
+  <!-- ACCESS KEY DE WEB3FORMS -->
   <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
 
-  <!-- Asunto del email que recibes -->
+  <!-- Asunto del email que tú recibes -->
   <input type="hidden" name="subject" value="🛒 Нова поръчка — RU58841 5%">
 
-  <!-- Página de gracias -->
-  <input type="hidden" name="redirect" value="https://ru58841hair.com/order5/thanks.html">
-
-  <!-- Auto-respuesta al cliente -->
+  <!-- Email automático para el cliente -->
+  <input type="hidden" name="replyto" value="email">
   <input type="hidden" name="auto_reply" value="Благодарим Ви! Вашата поръчка е получена успешно. Ще се свържем с Вас при изпращане.">
+
+  <!-- Página de agradecimiento -->
+  <input type="hidden" name="redirect" value="https://ru58841hair.com/order5/thanks.html">
 
   <!-- Producto -->
   <input type="hidden" name="product" value="RU58841 5%">
@@ -70,7 +75,7 @@ form button {
 
   <h2>2. Тип доставка</h2>
   <select name="delivery" id="delivery" required>
-    <option value="office">До офис на куриера</option>
+    <option value="office">До офис на Спиди/Еконт</option>
     <option value="address">До адрес</option>
   </select>
 
@@ -85,7 +90,7 @@ form button {
   <h2>3. Контакт</h2>
   <input type="text" name="name" placeholder="Име и фамилия" required>
   <input type="tel" name="phone" placeholder="Телефон" required>
-  <input type="email" name="email" placeholder="Email required">
+  <input type="email" name="email" placeholder="Email (по избор)">
 
   <h2>4. NFT Бележка (по желание)</h2>
   <select name="nft" id="nftSelect">
