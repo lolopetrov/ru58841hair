@@ -1,18 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.ru58841hair.com/</loc>
-    <lastmod>2025-09-17</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ru58841hair.com/checkout.html</loc>
-    <lastmod>2025-09-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ru58841hair.com/thanks.html</loc>
-    <lastmod>2025-09-17</lastmod>
-    <priority>0.3</priority>
-  </url>
-</urlset>
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sitemap — RU58841hair България</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.png">
+
+<meta name="description" content="Sitemap на сайта RU58841hair — всички страници на едно място.">
+
+<meta property="og:title" content="Sitemap — RU58841hair">
+<meta property="og:description" content="Пълен списък с всички страници в ru58841hair.com за лесна навигация.">
+<meta property="og:image" content="https://ru58841hair.com/assets/ru58841.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ru58841hair.com/sitemap.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sitemap — RU58841hair">
+<meta name="twitter:description" content="Всички страници на ru58841hair.com на едно място.">
+<meta name="twitter:image" content="https://ru58841hair.com/assets/ru58841.webp">
+</head>
+
+<body>
+
+<nav class="topnav">
+  <a href="/index.html">Начало</a>
+  <a href="/how-it-works.html">Как действа</a>
+  <a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a>
+  <a href="/ru58841-side-effects.html">Странични ефекти</a>
+  <a href="/ru58841-results.html">Резултати</a>
+</nav>
+
+<h1>Sitemap — Всички страници</h1>
+
+<p>Тук ще намерите всички достъпни страници на сайта RU58841hair:</p>
+
+<ul>
+  <li><a href="/index.html">Начало</a></li>
+  <li><a href="/how-it-works.html">Как действа RU58841</a></li>
+  <li><a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a></li>
+  <li><a href="/ru58841-side-effects.html">RU58841 Странични ефекти</a></li>
+  <li><a href="/ru58841-results.html">RU58841 Резултати</a></li>
+  <li><a href="/order5/index.html">Поръчай RU58841 5%</a></li>
+  <li><a href="/order10/index.html">Поръчай RU58841 10%</a></li>
+  <li><a href="/privacy.html">Политика за лични данни</a></li>
+</ul>
+
+<footer style="margin-top:60px;text-align:center;color:#999;font-size:12px;line-height:1.6;">
+  © 2025 ru58841hair.com
+</footer>
+
+</body>
+</html>
