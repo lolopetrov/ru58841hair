@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="../assets/favicon.png">
 
+<style>
+.hidden { display: none; }
+</style>
+
 </head>
 <body>
 
@@ -112,17 +116,20 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
+
+  // Продуктът е фиксиран за тази страница
   formData.append("product", "RU58841 10%");
 
+  // Изпращане
   await fetch("https://script.google.com/macros/s/AKfycbwR0rQGnauwA006rzLM8yYfO5SWcEDwXEE_Y9EL_tHikbBikv-A47-3c4TC8iDFoCWF/exec", {
     method: "POST",
     mode: "no-cors",
     body: formData
   });
 
+  // Пренасочване след изпращане
   window.location.href = "../thanks.html";
 });
-
 </script>
 
 </body>
