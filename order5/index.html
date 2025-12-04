@@ -11,6 +11,18 @@
 <style>
 .hidden { display: none; }
 button { cursor: pointer; }
+form select, form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+form button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+}
 </style>
 
 </head>
@@ -31,7 +43,7 @@ button { cursor: pointer; }
 <!-- Динамична цена -->
 <div id="priceBox">Цена: <b>33 лв</b></div>
 
-<!-- FORMULARIO COMPLETO CON FORMSUBMIT -->
+<!-- FORMULARIO CON FORMSUBMIT -->
 <form action="https://formsubmit.co/minoxidilbg@gmail.com" method="POST">
 
   <!-- CONFIGURACIÓN FORMSUBMIT -->
@@ -41,6 +53,7 @@ button { cursor: pointer; }
   <input type="hidden" name="_next" value="https://ru58841hair.com/thanks.html">
   <input type="hidden" name="_autoresponse" value="Вашата поръчка е получена успешно. Благодарим Ви!">
 
+  <!-- Producto -->
   <input type="hidden" name="product" value="RU58841 5%">
 
   <h2>1. Количество</h2>
@@ -103,13 +116,8 @@ const officeField = document.getElementById("officeField");
 const homeField = document.getElementById("homeField");
 
 delivery.addEventListener("change", () => {
-  if (delivery.value === "office") {
-    officeField.classList.remove("hidden");
-    homeField.classList.add("hidden");
-  } else {
-    officeField.classList.add("hidden");
-    homeField.classList.remove("hidden");
-  }
+  officeField.classList.toggle("hidden", delivery.value !== "office");
+  homeField.classList.toggle("hidden", delivery.value !== "address");
 });
 
 
@@ -118,11 +126,7 @@ const nftSelect = document.getElementById("nftSelect");
 const walletField = document.getElementById("walletField");
 
 nftSelect.addEventListener("change", () => {
-  if (nftSelect.value === "yes") {
-    walletField.classList.remove("hidden");
-  } else {
-    walletField.classList.add("hidden");
-  }
+  walletField.classList.toggle("hidden", nftSelect.value !== "yes");
 });
 </script>
 
