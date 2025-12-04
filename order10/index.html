@@ -4,34 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Поръчай RU58841 10% — RU58841hair България</title>
-<link rel="stylesheet" href="/assets/style.css">
-<link rel="icon" href="/assets/favicon.png">
-
-<link rel="canonical" href="https://ru58841hair.com/order10/">
-
-<meta name="description" content="Поръчайте RU58841 10% разтвор с бърза доставка до офис или адрес. Наложен платеж. Опция за NFT бележка.">
-
-<meta property="og:title" content="Поръчай RU58841 10%">
-<meta property="og:description" content="RU58841 10% — силно решение за косопад. Доставка до офис или адрес. Наложен платеж.">
-<meta property="og:image" content="https://ru58841hair.com/assets/ru58841.webp">
-<meta property="og:type" content="product">
-<meta property="og:url" content="https://ru58841hair.com/order10/">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RU58841 10% — Поръчка">
-<meta name="twitter:description" content="RU58841 10% разтвор. Бърза доставка. Наложен платеж.">
-<meta name="twitter:image" content="https://ru58841hair.com/assets/ru58841.webp">
-
-<style>
-  .address-box {
-    height: auto !important;
-    min-height: 60px;
-  }
-</style>
+<title>Поръчка — RU58841 10%</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.png">
 
 </head>
-
 <body>
 
 <nav class="topnav">
@@ -42,87 +19,99 @@
   <a href="/ru58841-results.html">Резултати</a>
 </nav>
 
-<h1>Поръчай RU58841 — 10% разтвор</h1>
+<h1>Поръчка — RU58841 10%</h1>
 
-<img src="/assets/ru58841.webp" class="product-image" alt="RU58841 10%">
+<img src="../assets/ru58841.webp" class="product-image" alt="RU58841 10%">
 
-<div id="priceBox">Цена: 33 лв</div>
+<div id="priceBox">Цена: <b>79 лв</b> • Наложен платеж</div>
 
-<form action="/thanks.html" method="GET">
+<form id="orderForm">
 
-<h2>1. Количество</h2>
-<select name="qty" id="qty" onchange="updatePrice()">
-  <option value="1">1 бр — 33 лв</option>
-  <option value="2">2 бр — 57 лв</option>
-  <option value="3">3 бр — 67 лв</option>
-</select>
+  <h2>1. Количество</h2>
+  <select name="qty" required>
+    <option value="1">1 брой</option>
+    <option value="2">2 броя</option>
+    <option value="3">3 броя</option>
+  </select>
 
-<h2>2. Доставка</h2>
+  <h2>2. Тип доставка</h2>
+  <select name="delivery" id="deliverySelect" required>
+    <option value="office">До офис на куриера</option>
+    <option value="address">До адрес</option>
+  </select>
 
-<select name="delivery" id="delivery" onchange="toggleDeliveryFields()">
-  <option value="office">До офис на Спиди / Еконт</option>
-  <option value="address">До адрес на клиента</option>
-</select>
+  <div id="courierOfficeBox">
+    <h3>Офис на куриера</h3>
+    <input type="text" name="address" placeholder="Пример: София, Спиди – Офис Витоша">
+  </div>
 
-<textarea name="address" id="addressField" class="address-box" placeholder="Офис на куриера — град, район..." required></textarea>
+  <div id="addressBox" class="hidden">
+    <h3>Адрес за доставка</h3>
+    <input type="text" name="address_full" placeholder="Пример: София, ул. Иван Вазов 15, ап. 4">
+  </div>
 
-<h2>3. Име и телефон</h2>
+  <h2>3. Контакт</h2>
+  <input type="text" name="name" placeholder="Име и фамилия" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="email" name="email" placeholder="Email (по избор)">
 
-<input type="text" name="name" placeholder="Вашето име" required>
-<input type="tel" name="phone" placeholder="Телефон" required>
+  <h2>4. NFT Бележка (по желание)</h2>
+  <select name="nft" id="nftSelect">
+    <option value="no">Без NFT</option>
+    <option value="yes">Желая NFT бележка</option>
+  </select>
 
-<h2>4. NFT Бележка (по желание)</h2>
+  <input type="text" id="walletBox" name="wallet" class="hidden" placeholder="Вашият Polygon адрес (0x...)">
 
-<select id="nftChoice" name="nftChoice" onchange="toggleWallet()">
-  <option value="no">Без NFT</option>
-  <option value="yes">Искам NFT бележка</option>
-</select>
-
-<input type="text" id="walletField" name="wallet" class="hidden" placeholder="Вашият Polygon wallet (0x…)" />
-
-<button type="submit">Потвърди поръчката</button>
-
+  <button type="submit">Завърши поръчката</button>
 </form>
 
-<div id="priceBoxBottom">Обща цена: 33 лв</div>
 
 <script>
-// --- Цена ---
-function updatePrice() {
-  const qty = document.getElementById("qty").value;
-  let price = 33;
-  if (qty == "2") price = 57;
-  if (qty == "3") price = 67;
-  document.getElementById("priceBox").innerText = "Цена: " + price + " лв";
-  document.getElementById("priceBoxBottom").innerText = "Обща цена: " + price + " лв";
-}
+// Показване / скриване на адрес полетата
+const deliverySelect = document.getElementById("deliverySelect");
+const courierOfficeBox = document.getElementById("courierOfficeBox");
+const addressBox = document.getElementById("addressBox");
 
-// --- Доставка ---
-function toggleDeliveryFields() {
-  const type = document.getElementById("delivery").value;
-  const field = document.getElementById("addressField");
-
-  if (type === "office") {
-    field.placeholder = "Офис на Спиди / Еконт — град, район...";
+deliverySelect.addEventListener("change", () => {
+  if (deliverySelect.value === "office") {
+    courierOfficeBox.classList.remove("hidden");
+    addressBox.classList.add("hidden");
   } else {
-    field.placeholder = "Вашият адрес — град, улица, №...";
+    courierOfficeBox.classList.add("hidden");
+    addressBox.classList.remove("hidden");
   }
-}
+});
 
-// --- NFT поле ---
-function toggleWallet() {
-  const choice = document.getElementById("nftChoice").value;
-  const wallet = document.getElementById("walletField");
+// NFT wallet поле
+const nftSelect = document.getElementById("nftSelect");
+const walletBox = document.getElementById("walletBox");
 
-  if (choice === "yes") wallet.classList.remove("hidden");
-  else wallet.classList.add("hidden");
-}
+nftSelect.addEventListener("change", () => {
+  if (nftSelect.value === "yes") {
+    walletBox.classList.remove("hidden");
+  } else {
+    walletBox.classList.add("hidden");
+  }
+});
+
+// Submit към Google Sheets → thanks.html
+
+document.getElementById("orderForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  formData.append("product", "RU58841 10%");
+
+  await fetch("https://script.google.com/macros/s/AKfycbxz1twwsVm82_eSVic3eMzG9IKDZX5jTq_CHlPbyJi3v3j1AhTR47NaoQyllo-pP7_jIQ/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
+  window.location.href = "../thanks.html";
+});
 </script>
-
-<footer style="margin-top:40px;text-align:center;color:#999;font-size:12px;">
-  © 2025 ru58841hair.com • 
-  <a href="/privacy.html" style="color:#999;text-decoration:none;">Политика за лични данни</a>
-</footer>
 
 </body>
 </html>
