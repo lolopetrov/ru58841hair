@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="../assets/favicon.png">
 
+<style>
+.hidden { display: none; }
+button { cursor: pointer; }
+</style>
+
 </head>
 <body>
 
@@ -23,16 +28,26 @@
 
 <img src="../assets/ru58841.webp" class="product-image">
 
-<!-- Динамична цена (опростена) -->
+<!-- Динамична цена -->
 <div id="priceBox">Цена: <b>33 лв</b></div>
 
-<form id="orderForm">
+<!-- FORMULARIO COMPLETO CON FORMSUBMIT -->
+<form action="https://formsubmit.co/minoxidilbg@gmail.com" method="POST">
+
+  <!-- CONFIGURACIÓN FORMSUBMIT -->
+  <input type="hidden" name="_subject" value="🛒 Нова поръчка — RU58841 5%">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://ru58841hair.com/thanks.html">
+  <input type="hidden" name="_autoresponse" value="Вашата поръчка е получена успешно. Благодарим Ви!">
+
+  <input type="hidden" name="product" value="RU58841 5%">
 
   <h2>1. Количество</h2>
   <select name="qty" id="qtySelect" required>
-    <option value="1">1 брой</option>
-    <option value="2">2 броя</option>
-    <option value="3">3 броя</option>
+    <option value="1">1 брой — 33 лв</option>
+    <option value="2">2 броя — 57 лв</option>
+    <option value="3">3 броя — 67 лв</option>
   </select>
 
   <h2>2. Тип доставка</h2>
@@ -42,11 +57,11 @@
   </select>
 
   <div id="officeField">
-    <input type="text" name="address" placeholder="Офис на куриер (Спиди/Еконт)">
+    <input type="text" name="office" placeholder="Офис на куриер (Спиди/Еконт)">
   </div>
 
   <div id="homeField" class="hidden">
-    <input type="text" name="address_full" placeholder="Адрес за доставка">
+    <input type="text" name="address" placeholder="Адрес за доставка">
   </div>
 
   <h2>3. Контакт</h2>
@@ -67,7 +82,7 @@
 
 
 <script>
-// --- Динамична цена (опростена) ---
+// --- Динамична цена ---
 const qtySelect = document.getElementById("qtySelect");
 const priceBox = document.getElementById("priceBox");
 
@@ -108,23 +123,6 @@ nftSelect.addEventListener("change", () => {
   } else {
     walletField.classList.add("hidden");
   }
-});
-
-
-// --- Изпращане към Google Apps Script ---
-document.getElementById("orderForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(e.target);
-  formData.append("product", "RU58841 5%");
-
-  await fetch("https://script.google.com/macros/s/AKfycbxSV9kST3eea6XB_NJ38oCwrPR2kDj4azsiI_JTWUXDwRGboqt4UuF0FWRTd_Ec5UsK/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
-
-  window.location.href = "../thanks.html";
 });
 </script>
 
