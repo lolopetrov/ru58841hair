@@ -114,7 +114,7 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
   const formData = new FormData(e.target);
   formData.append("product", "RU58841 10%");
 
-  await fetch("await fetch("https://script.google.com/macros/s/AKfycbwR0rQGnauwA006rzLM8yYfO5SWcEDwXEE_Y9EL_tHikbBikv-A47-3c4TC8iDFoCWF/exec", {
+  await fetch("https://script.google.com/macros/s/AKfycbwR0rQGnauwA006rzLM8yYfO5SWcEDwXEE_Y9EL_tHikbBikv-A47-3c4TC8iDFoCWF/exec", {
     method: "POST",
     mode: "no-cors",
     body: formData
@@ -122,6 +122,7 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
 
   window.location.href = "../thanks.html";
 });
+
 </script>
 
 </body>
