@@ -6,6 +6,15 @@ description: "RU58841 5% и 10% разтвор в България. Подход
 
 <link rel="stylesheet" href="assets/style.css">
 
+<nav class="topnav">
+  <a href="/index.html">Начало</a>
+  <a href="/how-it-works.html">Как действа</a>
+  <a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a>
+  <a href="/ru58841-side-effects.html">Странични ефекти</a>
+  <a href="/ru58841-results.html">Резултати</a>
+</nav>
+
+
 # RU58841 в България — 5% и 10% разтвор
 
 <img src="assets/ru58841.webp" class="product-image" alt="RU58841 продукт">
