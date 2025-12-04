@@ -50,92 +50,14 @@ form button {
 <!-- FORMULARIO WEB3FORMS -->
 <form action="https://api.web3forms.com/submit" method="POST">
 
-  <!-- ACCESS KEY DE WEB3FORMS -->
+  <!-- YOUR ACCESS KEY -->
   <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
 
-  <!-- Asunto del email que tú recibes -->
+  <!-- Nombre del remitente (NECESARIO para auto-reply) -->
+  <input type="hidden" name="from_name" value="RU58841 Hair">
+
+  <!-- Asunto del email que recibes como admin -->
   <input type="hidden" name="subject" value="🛒 Нова поръчка — RU58841 5%">
 
-  <!-- Email automático para el cliente -->
-  <input type="hidden" name="replyto" value="email">
-  <input type="hidden" name="auto_reply" value="Благодарим Ви! Вашата поръчка е получена успешно. Ще се свържем с Вас при изпращане.">
-
-  <!-- Página de agradecimiento -->
-  <input type="hidden" name="redirect" value="https://ru58841hair.com/order5/thanks.html">
-
-  <!-- Producto -->
-  <input type="hidden" name="product" value="RU58841 5%">
-
-  <h2>1. Количество</h2>
-  <select name="qty" id="qtySelect" required>
-    <option value="1">1 брой — 33 лв</option>
-    <option value="2">2 броя — 57 лв</option>
-    <option value="3">3 броя — 67 лв</option>
-  </select>
-
-  <h2>2. Тип доставка</h2>
-  <select name="delivery" id="delivery" required>
-    <option value="office">До офис на Спиди/Еконт</option>
-    <option value="address">До адрес</option>
-  </select>
-
-  <div id="officeField">
-    <input type="text" name="office" placeholder="Офис на Спиди/Еконт">
-  </div>
-
-  <div id="homeField" class="hidden">
-    <input type="text" name="address" placeholder="Адрес за доставка">
-  </div>
-
-  <h2>3. Контакт</h2>
-  <input type="text" name="name" placeholder="Име и фамилия" required>
-  <input type="tel" name="phone" placeholder="Телефон" required>
-  <input type="email" name="email" placeholder="Email (по избор)">
-
-  <h2>4. NFT Бележка (по желание)</h2>
-  <select name="nft" id="nftSelect">
-    <option value="no">Без NFT</option>
-    <option value="yes">Желая NFT бележка</option>
-  </select>
-
-  <input type="text" name="wallet" id="walletField" class="hidden" placeholder="Polygon wallet (0x...)">
-
-  <button type="submit">Изпрати поръчката</button>
-</form>
-
-<script>
-// --- Динамична цена ---
-const qtySelect = document.getElementById("qtySelect");
-const priceBox = document.getElementById("priceBox");
-
-function updatePrice() {
-  let qty = parseInt(qtySelect.value);
-  let price = 33;
-  if (qty === 2) price = 57;
-  if (qty === 3) price = 67;
-  priceBox.innerHTML = `Цена: <b>${price} лв</b>`;
-}
-qtySelect.addEventListener("change", updatePrice);
-updatePrice();
-
-// --- Офис / Адрес ---
-const delivery = document.getElementById("delivery");
-const officeField = document.getElementById("officeField");
-const homeField = document.getElementById("homeField");
-
-delivery.addEventListener("change", () => {
-  officeField.classList.toggle("hidden", delivery.value !== "office");
-  homeField.classList.toggle("hidden", delivery.value !== "address");
-});
-
-// --- NFT поле ---
-const nftSelect = document.getElementById("nftSelect");
-const walletField = document.getElementById("walletField");
-
-nftSelect.addEventListener("change", () => {
-  walletField.classList.toggle("hidden", nftSelect.value !== "yes");
-});
-</script>
-
-</body>
-</html>
+  <!-- Auto-reply al cliente -->
+  <input type="hidden" name="replyto" value="em
