@@ -43,7 +43,14 @@
 </form>
 
 <script>
-document.getElementById("deliverySelect").addEventListener("change", function(){
+// --- Променливи
+const deliverySelect = document.getElementById("deliverySelect");
+const officeBox = document.getElementById("officeBox");
+const addrBox   = document.getElementById("addrBox");
+const walletBox = document.getElementById("walletBox");
+
+// --- Показване/скриване на адреси
+deliverySelect.addEventListener("change", function(){
   if (this.value === "office") {
     officeBox.classList.remove("hidden");
     addrBox.classList.add("hidden");
@@ -53,18 +60,19 @@ document.getElementById("deliverySelect").addEventListener("change", function(){
   }
 });
 
+// --- NFT Wallet
 document.getElementById("nftSelect").addEventListener("change", function(){
   walletBox.classList.toggle("hidden", this.value !== "yes");
 });
 
+// --- Изпращане към Google Script
 document.getElementById("orderForm").addEventListener("submit", async (e)=>{
   e.preventDefault();
 
   const form = new FormData(e.target);
   form.append("product","RU58841 5%");
 
-  await fetch("https://script.google.com/macros/s/AKfycbxz1twvsVm82_eSVic3eMcZ9IKDZXSjTq_CHIpbyJi3v3j1AhTR47NaoQyIlo-pP7_ljQ/exec",
-              {
+  await fetch("https://script.google.com/macros/s/AKfycbxz1twvsVm82_eSVic3eMcZ9IKDZXSjTq_CHIpbyJi3v3j1AhTR47NaoQyIlo-pP7_ljQ/exec", {
     method:"POST",
     mode:"no-cors",
     body:form
