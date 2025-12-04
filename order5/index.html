@@ -63,7 +63,8 @@ document.getElementById("orderForm").addEventListener("submit", async (e)=>{
   const form = new FormData(e.target);
   form.append("product","RU58841 5%");
 
-  await fetch("YOUR_SCRIPT_URL_HERE", {
+  await fetch("https://script.google.com/macros/s/AKfycbxz1twvsVm82_eSVic3eMcZ9IKDZXSjTq_CHIpbyJi3v3j1AhTR47NaoQyIlo-pP7_ljQ/exec",
+              {
     method:"POST",
     mode:"no-cors",
     body:form
