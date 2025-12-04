@@ -24,8 +24,8 @@ form button {
   border: none;
 }
 </style>
-
 </head>
+
 <body>
 
 <nav class="topnav">
@@ -43,15 +43,20 @@ form button {
 <!-- Динамична цена -->
 <div id="priceBox">Цена: <b>33 лв</b></div>
 
-<!-- FORMULARIO CON FORMSUBMIT -->
-<form action="https://formsubmit.co/minoxidilbg@gmail.com" method="POST">
+<!-- FORMULARIO WEB3FORMS -->
+<form action="https://api.web3forms.com/submit" method="POST">
 
-  <!-- CONFIGURACIÓN FORMSUBMIT -->
-  <input type="hidden" name="_subject" value="🛒 Нова поръчка — RU58841 5%">
-  <input type="hidden" name="_template" value="box">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://ru58841hair.com/thanks.html">
-  <input type="hidden" name="_autoresponse" value="Вашата поръчка е получена успешно. Благодарим Ви!">
+  <!-- YOUR ACCESS KEY -->
+  <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+
+  <!-- Asunto del email que recibes -->
+  <input type="hidden" name="subject" value="🛒 Нова поръчка — RU58841 5%">
+
+  <!-- Página de gracias -->
+  <input type="hidden" name="redirect" value="https://ru58841hair.com/order5/thanks.html">
+
+  <!-- Auto-respuesta al cliente -->
+  <input type="hidden" name="auto_reply" value="Благодарим Ви! Вашата поръчка е получена успешно. Ще се свържем с Вас при изпращане.">
 
   <!-- Producto -->
   <input type="hidden" name="product" value="RU58841 5%">
@@ -70,7 +75,7 @@ form button {
   </select>
 
   <div id="officeField">
-    <input type="text" name="office" placeholder="Офис на куриер (Спиди/Еконт)">
+    <input type="text" name="office" placeholder="Офис на Спиди/Еконт">
   </div>
 
   <div id="homeField" class="hidden">
@@ -88,11 +93,10 @@ form button {
     <option value="yes">Желая NFT бележка</option>
   </select>
 
-  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
+  <input type="text" name="wallet" id="walletField" class="hidden" placeholder="Polygon wallet (0x...)">
 
   <button type="submit">Изпрати поръчката</button>
 </form>
-
 
 <script>
 // --- Динамична цена ---
@@ -109,7 +113,6 @@ function updatePrice() {
 qtySelect.addEventListener("change", updatePrice);
 updatePrice();
 
-
 // --- Офис / Адрес ---
 const delivery = document.getElementById("delivery");
 const officeField = document.getElementById("officeField");
@@ -119,7 +122,6 @@ delivery.addEventListener("change", () => {
   officeField.classList.toggle("hidden", delivery.value !== "office");
   homeField.classList.toggle("hidden", delivery.value !== "address");
 });
-
 
 // --- NFT поле ---
 const nftSelect = document.getElementById("nftSelect");
