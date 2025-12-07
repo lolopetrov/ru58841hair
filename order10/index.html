@@ -150,7 +150,6 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
   // Изпращане
   await fetch("https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec", {
     method: "POST",
-    mode: "no-cors",
     body: formData
   });
 
