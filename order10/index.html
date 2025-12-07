@@ -10,6 +10,23 @@
 
 <style>
 .hidden { display: none; }
+
+form select, form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
 </style>
 
 </head>
@@ -50,7 +67,7 @@
   </div>
 
   <div id="homeField" class="hidden">
-    <input type="text" name="address_full" placeholder="Адрес за доставка">
+    <input type="text" name="address" placeholder="Адрес за доставка">
   </div>
 
   <h2>3. Контакт</h2>
@@ -115,9 +132,19 @@ nftSelect.addEventListener("change", () => {
 document.getElementById("orderForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // Валидация на адреса
+  const addressInput = delivery.value === "office"
+    ? officeField.querySelector("input")
+    : homeField.querySelector("input");
+
+  if (!addressInput.value.trim()) {
+    alert("Моля, въведете адрес или офис на куриер.");
+    return;
+  }
+
   const formData = new FormData(e.target);
 
-  // Продуктът е фиксиран за тази страница
+  // Фиксиран продукт
   formData.append("product", "RU58841 10%");
 
   // Изпращане
@@ -127,7 +154,7 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
     body: formData
   });
 
-  // Пренасочване след изпращане
+  // Пренасочване
   window.location.href = "../thanks.html";
 });
 </script>
