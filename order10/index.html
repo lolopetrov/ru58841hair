@@ -27,6 +27,36 @@ form button {
   font-size: 16px;
   cursor: pointer;
 }
+
+/* ✅ Контакт блок */
+.contact-box {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.contact-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-box h4 {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.contact-box .phone {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.contact-box a {
+  text-decoration: none;
+  color: black;
+}
 </style>
 </head>
 
@@ -44,7 +74,6 @@ form button {
 
 <img src="../assets/ru58841.webp" class="product-image">
 
-<!-- Цена -->
 <div id="priceBox">Цена: <b>47 лв</b></div>
 
 <form id="orderForm"
@@ -74,7 +103,7 @@ form button {
     <input type="text" id="homeInput" placeholder="Адрес за доставка">
   </div>
 
-  <!-- ✅ Реалният адрес, който се изпраща -->
+  <!-- ✅ Реалният адрес -->
   <input type="hidden" name="address" id="realAddress">
 
   <!-- 3. Контакт -->
@@ -97,6 +126,20 @@ form button {
 
   <button type="submit">Изпрати поръчката</button>
 </form>
+
+<!-- ✅ БЛОК С ТЕЛЕФОН И РАБОТНО ВРЕМЕ -->
+<div class="contact-box">
+  <h3>📞 Телефон за контакт и поръчки</h3>
+  <p class="phone">
+    <a href="tel:0878914807">0878 914 807</a>
+  </p>
+
+  <h4>🕒 Работно време</h4>
+  <p>
+    Понеделник – Петък: 09:00 – 18:00<br>
+    Събота – Неделя: Почивни дни
+  </p>
+</div>
 
 <script>
 // --- Цена ---
@@ -143,7 +186,7 @@ nftSelect.addEventListener("change", () => {
 });
 
 
-// --- Преди изпращане попълваме реалния address ---
+// --- Подготовка преди изпращане ---
 document.getElementById("orderForm").addEventListener("submit", function() {
 
   const deliveryType = delivery.value;
@@ -151,16 +194,10 @@ document.getElementById("orderForm").addEventListener("submit", function() {
   const home   = document.getElementById("homeInput").value.trim();
 
   if (deliveryType === "office") {
-    if (!office) {
-      alert("Моля, въведете офис на куриер.");
-      return false;
-    }
+    if (!office) { alert("Моля, въведете офис на куриер."); return false; }
     document.getElementById("realAddress").value = office;
   } else {
-    if (!home) {
-      alert("Моля, въведете адрес за доставка.");
-      return false;
-    }
+    if (!home) { alert("Моля, въведете адрес за доставка."); return false; }
     document.getElementById("realAddress").value = home;
   }
 
