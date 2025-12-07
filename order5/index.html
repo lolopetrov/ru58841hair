@@ -45,7 +45,7 @@ form button {
 <img src="../assets/ru58841.webp" class="product-image">
 
 <!-- Цена -->
-<div id="priceBox">Цена: <b>33 лв</b></div>
+<div id="priceBox">Цена: <b>29 лв</b></div>
 
 <form id="orderForm"
   action="https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec"
@@ -105,9 +105,9 @@ const priceBox = document.getElementById("priceBox");
 
 function updatePrice() {
   let qty = parseInt(qtySelect.value);
-  let price = 33;
-  if (qty === 2) price = 60;
-  if (qty === 3) price = 90;
+  let price = 29;
+  if (qty === 2) price = 50;
+  if (qty === 3) price = 73;
   priceBox.innerHTML = `Цена: <b>${price} лв</b>`;
 }
 qtySelect.addEventListener("change", updatePrice);
