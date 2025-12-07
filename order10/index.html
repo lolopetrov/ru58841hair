@@ -28,8 +28,8 @@ form button {
   cursor: pointer;
 }
 </style>
-
 </head>
+
 <body>
 
 <nav class="topnav">
@@ -47,7 +47,9 @@ form button {
 <!-- Динамична цена -->
 <div id="priceBox">Цена: <b>47 лв</b></div>
 
-<form id="orderForm">
+<form id="orderForm"
+  action="https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec"
+  method="POST">
 
   <h2>1. Количество</h2>
   <select name="qty" id="qtySelect" required>
@@ -83,9 +85,11 @@ form button {
 
   <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
 
+  <!-- Фиксиран продукт -->
+  <input type="hidden" name="product" value="RU58841 10%">
+
   <button type="submit">Изпрати поръчката</button>
 </form>
-
 
 <script>
 // --- Динамична цена ---
@@ -128,33 +132,11 @@ nftSelect.addEventListener("change", () => {
 });
 
 
-// --- Изпращане към Google Apps Script ---
-document.getElementById("orderForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  // Валидация на адреса
-  const addressInput = delivery.value === "office"
-    ? officeField.querySelector("input")
-    : homeField.querySelector("input");
-
-  if (!addressInput.value.trim()) {
-    alert("Моля, въведете адрес или офис на куриер.");
-    return;
-  }
-
-  const formData = new FormData(e.target);
-
-  // Фиксиран продукт
-  formData.append("product", "RU58841 10%");
-
-  // Изпращане
-  await fetch("https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec", {
-    method: "POST",
-    body: formData
-  });
-
-  // Пренасочване
-  window.location.href = "../thanks.html";
+// --- Редирекция към thanks.html след изпращане ---
+document.getElementById("orderForm").addEventListener("submit", function() {
+  setTimeout(() => {
+    window.location.href = "../thanks.html";
+  }, 500);
 });
 </script>
 
