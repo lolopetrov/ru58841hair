@@ -44,13 +44,14 @@ form button {
 
 <img src="../assets/ru58841.webp" class="product-image">
 
-<!-- Динамична цена -->
+<!-- Цена -->
 <div id="priceBox">Цена: <b>47 лв</b></div>
 
 <form id="orderForm"
-  action="https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec"
+  action="https://script.google.com/macros/s/ТУК_СЛОЖИ_ТВОЯТА_URL/exec"
   method="POST">
 
+  <!-- 1. Количество -->
   <h2>1. Количество</h2>
   <select name="qty" id="qtySelect" required>
     <option value="1">1 брой</option>
@@ -58,6 +59,7 @@ form button {
     <option value="3">3 броя</option>
   </select>
 
+  <!-- 2. Доставка -->
   <h2>2. Тип доставка</h2>
   <select name="delivery" id="delivery" required>
     <option value="office">До офис на куриера</option>
@@ -65,18 +67,23 @@ form button {
   </select>
 
   <div id="officeField">
-    <input type="text" name="address" placeholder="Офис на куриер (Спиди/Еконт)">
+    <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
   </div>
 
   <div id="homeField" class="hidden">
-    <input type="text" name="address" placeholder="Адрес за доставка">
+    <input type="text" id="homeInput" placeholder="Адрес за доставка">
   </div>
 
+  <!-- ✅ Реалният адрес, който се изпраща -->
+  <input type="hidden" name="address" id="realAddress">
+
+  <!-- 3. Контакт -->
   <h2>3. Контакт</h2>
   <input type="text" name="name" placeholder="Име и фамилия" required>
   <input type="tel" name="phone" placeholder="Телефон" required>
   <input type="email" name="email" placeholder="Email" required>
 
+  <!-- 4. NFT -->
   <h2>4. NFT Бележка (по желание)</h2>
   <select name="nft" id="nftSelect">
     <option value="no">Без NFT</option>
@@ -85,14 +92,14 @@ form button {
 
   <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
 
-  <!-- Фиксиран продукт -->
+  <!-- Продукт -->
   <input type="hidden" name="product" value="RU58841 10%">
 
   <button type="submit">Изпрати поръчката</button>
 </form>
 
 <script>
-// --- Динамична цена ---
+// --- Цена ---
 const qtySelect = document.getElementById("qtySelect");
 const priceBox = document.getElementById("priceBox");
 
@@ -107,12 +114,16 @@ qtySelect.addEventListener("change", updatePrice);
 updatePrice();
 
 
-// --- Офис / Адрес ---
+// --- Доставка ---
 const delivery = document.getElementById("delivery");
 const officeField = document.getElementById("officeField");
 const homeField = document.getElementById("homeField");
 
 delivery.addEventListener("change", () => {
+  document.getElementById("officeInput").value = "";
+  document.getElementById("homeInput").value = "";
+  document.getElementById("realAddress").value = "";
+
   if (delivery.value === "office") {
     officeField.classList.remove("hidden");
     homeField.classList.add("hidden");
@@ -123,7 +134,7 @@ delivery.addEventListener("change", () => {
 });
 
 
-// --- NFT поле ---
+// --- NFT ---
 const nftSelect = document.getElementById("nftSelect");
 const walletField = document.getElementById("walletField");
 
@@ -132,11 +143,30 @@ nftSelect.addEventListener("change", () => {
 });
 
 
-// --- Редирекция към thanks.html след изпращане ---
+// --- Преди изпращане попълваме реалния address ---
 document.getElementById("orderForm").addEventListener("submit", function() {
+
+  const deliveryType = delivery.value;
+  const office = document.getElementById("officeInput").value.trim();
+  const home   = document.getElementById("homeInput").value.trim();
+
+  if (deliveryType === "office") {
+    if (!office) {
+      alert("Моля, въведете офис на куриер.");
+      return false;
+    }
+    document.getElementById("realAddress").value = office;
+  } else {
+    if (!home) {
+      alert("Моля, въведете адрес за доставка.");
+      return false;
+    }
+    document.getElementById("realAddress").value = home;
+  }
+
   setTimeout(() => {
     window.location.href = "../thanks.html";
-  }, 500);
+  }, 600);
 });
 </script>
 
