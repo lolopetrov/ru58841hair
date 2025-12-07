@@ -10,7 +10,6 @@
 
 <style>
 .hidden { display: none; }
-button { cursor: pointer; }
 
 form select, form input {
   width: 100%;
@@ -26,6 +25,7 @@ form button {
   color: white;
   border: none;
   font-size: 16px;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -44,20 +44,131 @@ form button {
 
 <img src="../assets/ru58841.webp" class="product-image">
 
-<!-- Динамична цена -->
+<!-- Цена -->
 <div id="priceBox">Цена: <b>33 лв</b></div>
 
-<!-- FORMULARIO WEB3FORMS -->
-<form action="https://api.web3forms.com/submit" method="POST">
+<form id="orderForm"
+  action="https://script.google.com/macros/s/ТУК_СЛОЖИ_ТВОЯТА_URL/exec"
+  method="POST">
 
-  <!-- YOUR ACCESS KEY -->
-  <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+  <!-- 1. Количество -->
+  <h2>1. Количество</h2>
+  <select name="qty" id="qtySelect" required>
+    <option value="1">1 брой</option>
+    <option value="2">2 броя</option>
+    <option value="3">3 броя</option>
+  </select>
 
-  <!-- Nombre del remitente (NECESARIO para auto-reply) -->
-  <input type="hidden" name="from_name" value="RU58841 Hair">
+  <!-- 2. Доставка -->
+  <h2>2. Тип доставка</h2>
+  <select name="delivery" id="delivery" required>
+    <option value="office">До офис на куриера</option>
+    <option value="address">До адрес</option>
+  </select>
 
-  <!-- Asunto del email que recibes como admin -->
-  <input type="hidden" name="subject" value="🛒 Нова поръчка — RU58841 5%">
+  <div id="officeField">
+    <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
+  </div>
 
-  <!-- Auto-reply al cliente -->
-  <input type="hidden" name="replyto" value="em
+  <div id="homeField" class="hidden">
+    <input type="text" id="homeInput" placeholder="Адрес за доставка">
+  </div>
+
+  <!-- ✅ Реалният адрес, който се изпраща -->
+  <input type="hidden" name="address" id="realAddress">
+
+  <!-- 3. Контакт -->
+  <h2>3. Контакт</h2>
+  <input type="text" name="name" placeholder="Име и фамилия" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="email" name="email" placeholder="Email" required>
+
+  <!-- 4. NFT -->
+  <h2>4. NFT Бележка (по желание)</h2>
+  <select name="nft" id="nftSelect">
+    <option value="no">Без NFT</option>
+    <option value="yes">Желая NFT бележка</option>
+  </select>
+
+  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
+
+  <!-- Продукт -->
+  <input type="hidden" name="product" value="RU58841 5%">
+
+  <button type="submit">Изпрати поръчката</button>
+</form>
+
+<script>
+// --- Цена ---
+const qtySelect = document.getElementById("qtySelect");
+const priceBox = document.getElementById("priceBox");
+
+function updatePrice() {
+  let qty = parseInt(qtySelect.value);
+  let price = 33;
+  if (qty === 2) price = 60;
+  if (qty === 3) price = 90;
+  priceBox.innerHTML = `Цена: <b>${price} лв</b>`;
+}
+qtySelect.addEventListener("change", updatePrice);
+updatePrice();
+
+
+// --- Доставка ---
+const delivery = document.getElementById("delivery");
+const officeField = document.getElementById("officeField");
+const homeField = document.getElementById("homeField");
+
+delivery.addEventListener("change", () => {
+  document.getElementById("officeInput").value = "";
+  document.getElementById("homeInput").value = "";
+  document.getElementById("realAddress").value = "";
+
+  if (delivery.value === "office") {
+    officeField.classList.remove("hidden");
+    homeField.classList.add("hidden");
+  } else {
+    officeField.classList.add("hidden");
+    homeField.classList.remove("hidden");
+  }
+});
+
+
+// --- NFT ---
+const nftSelect = document.getElementById("nftSelect");
+const walletField = document.getElementById("walletField");
+
+nftSelect.addEventListener("change", () => {
+  walletField.classList.toggle("hidden", nftSelect.value !== "yes");
+});
+
+
+// --- Преди изпращане попълваме реалния address ---
+document.getElementById("orderForm").addEventListener("submit", function() {
+
+  const deliveryType = delivery.value;
+  const office = document.getElementById("officeInput").value.trim();
+  const home   = document.getElementById("homeInput").value.trim();
+
+  if (deliveryType === "office") {
+    if (!office) {
+      alert("Моля, въведете офис на куриер.");
+      return false;
+    }
+    document.getElementById("realAddress").value = office;
+  } else {
+    if (!home) {
+      alert("Моля, въведете адрес за доставка.");
+      return false;
+    }
+    document.getElementById("realAddress").value = home;
+  }
+
+  setTimeout(() => {
+    window.location.href = "../thanks.html";
+  }, 600);
+});
+</script>
+
+</body>
+</html>
