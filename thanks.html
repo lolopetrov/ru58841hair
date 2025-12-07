@@ -36,16 +36,25 @@
   p {
     font-size: 17px;
     color: #333;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
+  }
+
+  .contact-box {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .phone {
+    font-size: 22px;
+    font-weight: bold;
   }
 
   a {
     text-decoration: none;
-    padding: 12px 24px;
-    background: #000;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 16px;
+    color: black;
   }
 </style>
 </head>
@@ -57,7 +66,18 @@
 <h1>Благодарим Ви!</h1>
 <p>Вашата поръчка е изпратена успешно.</p>
 
-<a href="/index.html">⬅ Начало</a>
+<div class="contact-box">
+  <p>📞 За въпроси и промени:</p>
+  <p class="phone">
+    <a href="tel:0878914807">0878 914 807</a>
+  </p>
+  <p>
+    Понеделник – Петък: 09:00 – 18:00<br>
+    Събота – Неделя: Почивни дни
+  </p>
+</div>
+
+<a href="/index.html" style="margin-top: 30px;">⬅ Начало</a>
 
 </body>
 </html>
