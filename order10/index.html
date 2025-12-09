@@ -142,17 +142,20 @@ form button {
 </div>
 
 <script>
-// --- Цена ---
+// --- ✅ Динамична цена (10%) — 20€ / 35€ / 48€ ---
 const qtySelect = document.getElementById("qtySelect");
 const priceBox = document.getElementById("priceBox");
 
 function updatePrice() {
-  let qty = parseInt(qtySelect.value);
-  let price = 47;
-  if (qty === 2) price = 81;
-  if (qty === 3) price = 137;
-  priceBox.innerHTML = `Цена: <b>${price} лв</b>`;
+  const qty = parseInt(qtySelect.value);
+  let price = 39.20;   // 20 €
+
+  if (qty === 2) price = 68.60;   // 35 €
+  if (qty === 3) price = 94.08;   // 48 €
+
+  priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} лв</b>`;
 }
+
 qtySelect.addEventListener("change", updatePrice);
 updatePrice();
 
