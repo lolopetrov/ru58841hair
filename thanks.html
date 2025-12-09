@@ -4,107 +4,81 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Благодарим Ви!</title>
-<link rel="icon" href="../assets/favicon.png">
+<title>Благодарим Ви за поръчката!</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.png">
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #000;
-    text-align: center;
-  }
+.quick-order-box {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  text-align: center;
+  border-radius: 12px;
+}
 
-  .check {
-    font-size: 64px;
-    margin-bottom: 24px;
-  }
+.quick-order-box h3 {
+  font-size: 17px;
+  margin-bottom: 14px;
+}
 
-  h1 {
-    font-size: 26px;
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
+.viber-btn, .whatsapp-btn {
+  display: block;
+  padding: 14px;
+  margin: 10px auto;
+  max-width: 320px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff !important;
+  font-size: 16px;
+}
 
-  p {
-    font-size: 17px;
-    color: #333;
-    margin-bottom: 20px;
-  }
+.viber-btn {
+  background: #7360f2;
+}
 
-  .contact-box {
-    margin-top: 10px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    width: 100%;
-    max-width: 360px;
-  }
+.whatsapp-btn {
+  background: #25d366;
+}
 
-  .phone {
-    font-size: 22px;
-    font-weight: bold;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  /* ✅ Бързи поръчки */
-  .quick-order-box {
-    margin-top: 25px;
-  }
-
-  .quick-btn {
-    display: block;
-    margin: 10px auto;
-    padding: 12px;
-    max-width: 260px;
-    background: black;
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-  }
+.viber-btn:hover,
+.whatsapp-btn:hover {
+  opacity: 0.85;
+}
 </style>
 </head>
 
 <body>
 
-<div class="check">✔</div>
+<h1>✅ Благодарим Ви за поръчката!</h1>
 
-<h1>Благодарим Ви!</h1>
-<p>Вашата поръчка е изпратена успешно.</p>
-
-<div class="contact-box">
-  <p>📞 За въпроси и промени:</p>
-  <p class="phone">
-    <a href="tel:0878914807">0878 914 807</a>
-  </p>
+<div class="thanks-box">
   <p>
-    Понеделник – Петък: 09:00 – 18:00<br>
-    Събота – Неделя: Почивни дни
+    Получихме Вашата поръчка успешно.<br>
+    Наш сътрудник ще се свърже с Вас за потвърждение.
   </p>
+
+  <p style="margin-top:15px;font-weight:600;">
+    Ако желаете, може да ни пишете директно за по-бързо обслужване:
+  </p>
+
+  <!-- ✅ Бързи бутони -->
+  <div class="quick-order-box">
+    <h3>⚡ Бърз контакт</h3>
+
+    <a class="viber-btn" href="viber://chat?number=+359878914807">
+      📩 Пиши ни във Viber
+    </a>
+
+    <a class="whatsapp-btn" href="https://wa.me/359878914807" target="_blank">
+      💬 Пиши ни в WhatsApp
+    </a>
+  </div>
+
+  <a href="index.html" class="btn">← Обратно към началото</a>
 </div>
-
-<!-- ✅ 🔗 Бързи бутони към 5% и 10% -->
-<div class="quick-order-box">
-  <a class="quick-btn" href="/order5/index.html">
-    Нова поръчка — RU58841 5%
-  </a>
-
-  <a class="quick-btn" href="/order10/index.html">
-    Нова поръчка — RU58841 10%
-  </a>
-</div>
-
-<a href="/index.html" style="margin-top: 30px;">⬅ Начало</a>
 
 </body>
 </html>
