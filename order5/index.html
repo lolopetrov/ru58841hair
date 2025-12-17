@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Поръчка — RU58841 5%</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.png">
+
+<style>
+.hidden { display: none; }
+
+form select, form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-box {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.contact-box h3 { margin-bottom: 10px; font-size: 18px; }
+.contact-box h4 { margin-top: 15px; font-size: 16px; }
+.contact-box .phone { font-size: 22px; font-weight: bold; }
+.contact-box a { text-decoration: none; color: black; }
+</style>
+</head>
+
+<body>
+
+<nav class="topnav">
+  <a href="/index.html">Начало</a>
+  <a href="/how-it-works.html">Как действа</a>
+  <a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a>
+  <a href="/ru58841-side-effects.html">Странични ефекти</a>
+  <a href="/ru58841-results.html">Резултати</a>
+</nav>
+
+<h1>Поръчка — RU58841 5%</h1>
+
+<img src="../assets/ru58841_ai.webp" class="product-image">
+
+<div id="priceBox">Цена: <b>29.40 лв</b></div>
+
+<div class="payment-box">
+  <h3>💳 Начин на плащане</h3>
+  <p>
+    Плащането се извършва с <b>наложен платеж при получаване</b>.<br>
+    Може да заплатите както <b>в брой</b>, така и <b>с карта директно на куриера</b>.
+  </p>
+</div>
+
+<!-- ✅ FORM WEB3FORMS -->
+<form id="orderForm"
+      action="https://api.web3forms.com/submit"
+      method="POST">
+
+  <!-- 🔑 Web3Forms -->
+  <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+  <input type="hidden" name="redirect" value="https://ru58841hair.com/thanks.html">
+  <input type="hidden" name="subject" value="🧾 Нова поръчка RU58841 5%">
+  <input type="checkbox" name="botcheck" class="hidden">
+
+  <!-- Продукт -->
+  <input type="hidden" name="product" value="RU58841 5%">
+
+  <h2>1. Количество</h2>
+  <select name="qty" id="qtySelect" required>
+    <option value="1">1 брой</option>
+    <option value="2">2 броя</option>
+    <option value="3">3 броя</option>
+  </select>
+
+  <h2>2. Тип доставка</h2>
+  <select name="delivery" id="delivery" required>
+    <option value="office">До офис на куриера</option>
+    <option value="address">До адрес</option>
+  </select>
+
+  <div id="officeField">
+    <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
+  </div>
+
+  <div id="homeField" class="hidden">
+    <input type="text" id="homeInput" placeholder="Адрес за доставка">
+  </div>
+
+  <input type="hidden" name="address" id="realAddress">
+
+  <h2>3. Контакт</h2>
+  <input type="text" name="name" placeholder="Име и фамилия" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="email" name="email" placeholder="Email" required>
+
+  <h2>4. NFT Бележка (по желание)</h2>
+  <select name="nft" id="nftSelect">
+    <option value="no">Без NFT</option>
+    <option value="yes">Желая NFT бележка</option>
+  </select>
+
+  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
+
+  <button type="submit">Изпрати поръчката</button>
+</form>
+
+<div class="contact-box">
+  <h3>📞 Телефон за контакт</h3>
+  <p class="phone"><a href="tel:0878914807">0878 914 807</a></p>
+  <h4>🕒 Работно време</h4>
+  <p>Понеделник – Петък: 09:00 – 18:00</p>
+</div>
+
+<script>
+const qtySelect = document.getElementById("qtySelect");
+const priceBox = document.getElementById("priceBox");
+
+function updatePrice() {
+  let price = 29.40;
+  if (qtySelect.value === "2") price = 49.00;
+  if (qtySelect.value === "3") price = 64.68;
+  priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} лв</b>`;
+}
+qtySelect.addEventListener("change", updatePrice);
+updatePrice();
+
+const delivery = document.getElementById("delivery");
+const officeField = document.getElementById("officeField");
+const homeField = document.getElementById("homeField");
+
+delivery.addEventListener("change", () => {
+  officeField.classList.toggle("hidden", delivery.value !== "office");
+  homeField.classList.toggle("hidden", delivery.value !== "address");
+});
+
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  if (delivery.value === "office" && !officeInput.value.trim()) {
+    alert("Моля, въведете офис на куриер.");
+    e.preventDefault();
+  }
+  if (delivery.value === "address" && !homeInput.value.trim()) {
+    alert("Моля, въведете адрес за доставка.");
+    e.preventDefault();
+  }
+  realAddress.value = delivery.value === "office"
+    ? officeInput.value
+    : homeInput.value;
+});
+</script>
+
+</body>
+</html>
