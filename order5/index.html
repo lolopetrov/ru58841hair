@@ -214,6 +214,13 @@ form button {
   action="https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec"
   method="POST">
 
+  <!-- 🕳 Honeypot (анти-спам) -->
+  <input type="text" name="website" style="display:none">
+
+  <!-- 🔑 Token (валидира формата) -->
+  <input type="hidden" name="token" value="ru58841-2025">
+
+  
   <h2>1. Количество</h2>
   <select name="qty" id="qtySelect" required>
     <option value="1">1 брой</option>
