@@ -28,7 +28,6 @@ form button {
   cursor: pointer;
 }
 
-/* ✅ Контакт блок */
 .contact-box {
   margin-top: 40px;
   padding: 20px;
@@ -37,153 +36,11 @@ form button {
   font-family: Arial, sans-serif;
 }
 
-.contact-box h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-.contact-box h4 {
-  margin-top: 15px;
-  font-size: 16px;
-}
-
-.contact-box .phone {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.contact-box a {
-  text-decoration: none;
-  color: black;
-}
+.contact-box h3 { margin-bottom: 10px; font-size: 18px; }
+.contact-box h4 { margin-top: 15px; font-size: 16px; }
+.contact-box .phone { font-size: 22px; font-weight: bold; }
+.contact-box a { text-decoration: none; color: black; }
 </style>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": "RU58841 5% разтвор",
-  "image": "https://ru58841hair.com/assets/ru58841.webp",
-  "description": "RU58841 5% — локален разтвор за блокиране на DHT и подпомагане на косата при косопад и андрогенна алопеция.",
-  "brand": {
-    "@type": "Brand",
-    "name": "RU58841hair"
-  },
-  "sku": "RU58841-5",
-  "mpn": "RU58841-5",
-  "url": "https://ru58841hair.com/order5/index.html",
-  "offers": {
-    "@type": "Offer",
-    "url": "https://ru58841hair.com/order5/index.html",
-    "priceCurrency": "BGN",
-    "price": "29.40",
-    "availability": "https://schema.org/InStock",
-    "itemCondition": "https://schema.org/NewCondition",
-    "seller": {
-      "@type": "Organization",
-      "name": "RU58841hair"
-    }
-  }
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CheckoutPage",
-  "name": "Поръчка — RU58841 5%",
-  "url": "https://ru58841hair.com/order5/index.html",
-  "about": {
-    "@type": "Product",
-    "name": "RU58841 5% разтвор"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "RU58841hair",
-    "url": "https://ru58841hair.com"
-  }
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "OrderAction",
-  "name": "Поръчка на RU58841 5%",
-  "target": {
-    "@type": "EntryPoint",
-    "urlTemplate": "https://ru58841hair.com/order5/index.html",
-    "actionPlatform": [
-      "https://schema.org/DesktopWebPlatform",
-      "https://schema.org/MobileWebPlatform"
-    ]
-  },
-  "object": {
-    "@type": "Product",
-    "name": "RU58841 5% разтвор"
-  }
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Order",
-  "merchant": {
-    "@type": "Organization",
-    "name": "RU58841hair"
-  },
-  "orderStatus": "https://schema.org/OrderProcessing",
-  "acceptedOffer": {
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Product",
-      "name": "RU58841 5% разтвор"
-    },
-    "priceCurrency": "BGN",
-    "price": "29.40"
-  }
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Как да поръчам RU58841 5%",
-  "description": "Стъпки за бърза поръчка на RU58841 5% разтвор.",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Изберете количество",
-      "text": "Изберете 1, 2 или 3 броя от падащото меню."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Изберете начин на доставка",
-      "text": "До офис на куриер или до адрес."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Въведете данни за контакт",
-      "text": "Име, телефон и email."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "По желание: NFT бележка",
-      "text": "Ако желаете NFT бележка, въведете Polygon wallet."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Изпратете поръчката",
-      "text": "Натиснете бутона 'Изпрати поръчката'."
-    }
-  ]
-}
-</script>
-
-
 </head>
 
 <body>
@@ -202,7 +59,7 @@ form button {
 
 <div id="priceBox">Цена: <b>29.40 лв</b></div>
 
-  <div class="payment-box">
+<div class="payment-box">
   <h3>💳 Начин на плащане</h3>
   <p>
     Плащането се извършва с <b>наложен платеж при получаване</b>.<br>
@@ -211,16 +68,12 @@ form button {
 </div>
 
 <form id="orderForm"
-  action="https://script.google.com/macros/s/AKfycbwgpvoU9ki0y_yaAQkFWudubeg5M5Az35JsDJYDNwtgWLenY6u-Z2DwLSf5yh2Wu2zV/exec"
-  method="POST">
+      action="https://ru58841-backend.onrender.com/send"
+      method="POST">
 
-  <!-- 🕳 Honeypot (анти-спам) -->
-  <input type="text" name="website" style="display:none">
+  <!-- Продукт -->
+  <input type="hidden" name="product" value="RU58841 5%">
 
-  <!-- 🔑 Token (валидира формата) -->
-  <input type="hidden" name="token" value="ru58841-2025">
-
-  
   <h2>1. Количество</h2>
   <select name="qty" id="qtySelect" required>
     <option value="1">1 брой</option>
@@ -257,85 +110,50 @@ form button {
 
   <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
 
-  <input type="hidden" name="product" value="RU58841 5%">
-
   <button type="submit">Изпрати поръчката</button>
 </form>
 
-<!-- ✅ БЛОК С ТЕЛЕФОН И РАБОТНО ВРЕМЕ -->
 <div class="contact-box">
-  <h3>📞 Телефон за контакт и поръчки</h3>
-  <p class="phone">
-    <a href="tel:0878914807">0878 914 807</a>
-  </p>
-
+  <h3>📞 Телефон за контакт</h3>
+  <p class="phone"><a href="tel:0878914807">0878 914 807</a></p>
   <h4>🕒 Работно време</h4>
-  <p>
-    Понеделник – Петък: 09:00 – 18:00<br>
-    Събота – Неделя: Почивни дни
-  </p>
+  <p>Понеделник – Петък: 09:00 – 18:00</p>
 </div>
 
 <script>
-// --- Динамична цена (5%) — 15€ / 25€ / 33€ ---
 const qtySelect = document.getElementById("qtySelect");
 const priceBox = document.getElementById("priceBox");
 
 function updatePrice() {
-  const qty = parseInt(qtySelect.value);
-  let price = 29.40;   // 15 €
-
-  if (qty === 2) price = 49.00;   // 25 €
-  if (qty === 3) price = 64.68;   // 33 €
-
+  let price = 29.40;
+  if (qtySelect.value === "2") price = 49.00;
+  if (qtySelect.value === "3") price = 64.68;
   priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} лв</b>`;
 }
-
 qtySelect.addEventListener("change", updatePrice);
 updatePrice();
-
 
 const delivery = document.getElementById("delivery");
 const officeField = document.getElementById("officeField");
 const homeField = document.getElementById("homeField");
 
 delivery.addEventListener("change", () => {
-  document.getElementById("officeInput").value = "";
-  document.getElementById("homeInput").value = "";
-  document.getElementById("realAddress").value = "";
-
-  if (delivery.value === "office") {
-    officeField.classList.remove("hidden");
-    homeField.classList.add("hidden");
-  } else {
-    officeField.classList.add("hidden");
-    homeField.classList.remove("hidden");
-  }
+  officeField.classList.toggle("hidden", delivery.value !== "office");
+  homeField.classList.toggle("hidden", delivery.value !== "address");
 });
 
-const nftSelect = document.getElementById("nftSelect");
-const walletField = document.getElementById("walletField");
-
-nftSelect.addEventListener("change", () => {
-  walletField.classList.toggle("hidden", nftSelect.value !== "yes");
-});
-
-document.getElementById("orderForm").addEventListener("submit", function() {
-  const deliveryType = delivery.value;
-  const office = document.getElementById("officeInput").value.trim();
-  const home   = document.getElementById("homeInput").value.trim();
-
-  if (deliveryType === "office") {
-    if (!office) { alert("Моля, въведете офис на куриер."); return false; }
-    document.getElementById("realAddress").value = office;
-  } else {
-    if (!home) { alert("Моля, въведете адрес за доставка."); return false; }
-    document.getElementById("realAddress").value = home;
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  if (delivery.value === "office" && !officeInput.value.trim()) {
+    alert("Моля, въведете офис на куриер.");
+    e.preventDefault();
   }
-
-  setTimeout(() => {
-    window.location.href = "../thanks.html";
-  }, 600);
+  if (delivery.value === "address" && !homeInput.value.trim()) {
+    alert("Моля, въведете адрес за доставка.");
+    e.preventDefault();
+  }
+  realAddress.value = delivery.value === "office"
+    ? officeInput.value
+    : homeInput.value;
 });
 </script>
 
