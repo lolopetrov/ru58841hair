@@ -57,7 +57,7 @@ form button {
 
 <img src="../assets/ru58841_ai.webp" class="product-image">
 
-<div id="priceBox">Цена: <b>29.40 лв</b></div>
+<div id="priceBox">Цена: <b>15.00 евро</b></div>
 
 <div class="payment-box">
   <h3>💳 Начин на плащане</h3>
@@ -125,9 +125,9 @@ const qtySelect = document.getElementById("qtySelect");
 const priceBox = document.getElementById("priceBox");
 
 function updatePrice() {
-  let price = 29.40;
-  if (qtySelect.value === "2") price = 49.00;
-  if (qtySelect.value === "3") price = 64.68;
+  let price = 15.00;
+  if (qtySelect.value === "2") price = 25.00;
+  if (qtySelect.value === "3") price = 33.00;
   priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} лв</b>`;
 }
 qtySelect.addEventListener("change", updatePrice);
