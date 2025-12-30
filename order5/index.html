@@ -128,7 +128,7 @@ function updatePrice() {
   let price = 15.00;
   if (qtySelect.value === "2") price = 25.00;
   if (qtySelect.value === "3") price = 33.00;
-  priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} лв</b>`;
+  priceBox.innerHTML = `Цена: <b>${price.toFixed(2)} евро</b>`;
 }
 qtySelect.addEventListener("change", updatePrice);
 updatePrice();
