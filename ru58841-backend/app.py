@@ -56,23 +56,20 @@ def send_order(
     email: str = Form(...),
     nft: str = Form("no"),
     wallet: str = Form(""),
-    company: str = Form("")  # honeypot: este campo debe ir vacío
+    company: str = Form("")
 ):
     origin = request.headers.get("origin", "")
     referer = request.headers.get("referer", "")
 
-    # 1) Honeypot: si viene relleno, casi seguro es bot
     if company.strip():
         raise HTTPException(status_code=400, detail="Spam detected")
 
-    # 2) Permitir solo desde tu dominio
     if origin and origin not in ALLOWED_ORIGINS:
-        raise HTTPException(status_code=403, detail="Origin not allowed")
+        raise HTTPException(status_code=403, detail=f"Origin not allowed: {origin}")
 
     if referer and not any(referer.startswith(o) for o in ALLOWED_ORIGINS):
-        raise HTTPException(status_code=403, detail="Referer not allowed")
+        raise HTTPException(status_code=403, detail=f"Referer not allowed: {referer}")
 
-    # 3) Limpiar y validar
     product = clean(product, 100)
     qty = clean(qty, 10)
     delivery = clean(delivery, 50)
@@ -111,7 +108,9 @@ def send_order(
     else:
         wallet = ""
 
-    # 4) Crear emails
+    if not SMTP_USER or not SMTP_PASS:
+        raise HTTPException(status_code=500, detail="SMTP variables missing")
+
     admin_msg = MIMEText(f"""
 🧾 НОВА ПОРЪЧКА — RU58841 5%
 
@@ -151,13 +150,21 @@ Wallet: {wallet}
     user_msg["From"] = SMTP_USER
     user_msg["To"] = email
 
-    # 5) Enviar
-    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
-        server.login(SMTP_USER, SMTP_PASS)
-        server.send_message(admin_msg)
-        server.send_message(user_msg)
+    try:
+        print("Connecting to Gmail SMTP...")
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, timeout=15) as server:
+            print("Logging in...")
+            server.login(SMTP_USER, SMTP_PASS)
+            print("Sending admin email...")
+            server.send_message(admin_msg)
+            print("Sending user email...")
+            server.send_message(user_msg)
+            print("Emails sent OK")
+    except Exception as e:
+        print("SMTP ERROR:", repr(e))
+        raise HTTPException(status_code=500, detail=f"Email send failed: {repr(e)}")
 
     return RedirectResponse(
-        "https://ru58841hair.com/thanks.html",
+        "https://ru58841hair.com/order5/thanks.html",
         status_code=303
     )
