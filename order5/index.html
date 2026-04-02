@@ -1,0 +1,51 @@
+<form id="orderForm"
+      action="https://api.web3forms.com/submit"
+      method="POST">
+
+  <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+  <input type="hidden" name="subject" value="🧾 Нова поръчка RU58841 5%">
+  <input type="hidden" name="from_name" value="RU58841 Hair">
+  <input type="hidden" name="redirect" value="https://ru58841hair.com/order5/thanks.html">
+
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+  <input type="hidden" name="product" value="RU58841 5%">
+
+  <h2>1. Количество</h2>
+  <select name="qty" id="qtySelect" required>
+    <option value="1">1 брой</option>
+    <option value="2">2 броя</option>
+    <option value="3">3 броя</option>
+  </select>
+
+  <h2>2. Тип доставка</h2>
+  <select name="delivery" id="delivery" required>
+    <option value="office">До офис на куриера</option>
+    <option value="address">До адрес</option>
+  </select>
+
+  <div id="officeField">
+    <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
+  </div>
+
+  <div id="homeField" class="hidden">
+    <input type="text" id="homeInput" placeholder="Адрес за доставка">
+  </div>
+
+  <input type="hidden" name="address" id="realAddress">
+
+  <h2>3. Контакт</h2>
+  <input type="text" name="name" placeholder="Име и фамилия" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="email" name="email" placeholder="Email" required>
+
+  <h2>4. NFT Бележка (по желание)</h2>
+  <select name="nft" id="nftSelect">
+    <option value="no">Без NFT</option>
+    <option value="yes">Желая NFT бележка</option>
+  </select>
+
+  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
+
+  <button type="submit">Изпрати поръчката</button>
+</form>
