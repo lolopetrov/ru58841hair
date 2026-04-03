@@ -9,37 +9,196 @@
 <link rel="icon" href="../assets/favicon.png">
 
 <style>
-.hidden { display: none; }
+.hidden { display: none !important; }
 
-form select, form input {
-  width: 100%;
-  padding: 12px;
+.section {
+  margin: 50px auto;
+  max-width: 820px;
+  padding: 0 16px;
+  line-height: 1.7;
+}
+
+.order-shell {
+  max-width: 820px;
+  margin: 30px auto 0;
+  padding: 0 16px;
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.order-intro {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.order-intro p {
+  margin: 10px 0 0;
+  color: #555;
+  font-size: 15px;
+}
+
+.price-badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #f6f6f6;
+  border: 1px solid #e3e3e3;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.payment-box {
+  margin: 18px 0 26px;
+  padding: 16px 18px;
+  background: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+}
+
+.payment-box h3 {
+  margin-top: 0;
   margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.form-section {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #efefef;
+}
+
+.form-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.form-section h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.form-help {
+  margin: -4px 0 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+form select,
+form input {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 12px;
   box-sizing: border-box;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form select:focus,
+form input:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.note-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fcfcfc;
+  border: 1px dashed #dddddd;
+  color: #555;
+  font-size: 14px;
+}
+
+.form-submit {
+  margin-top: 28px;
 }
 
 form button {
   width: 100%;
-  padding: 12px;
+  padding: 14px 16px;
   background: black;
   color: white;
   border: none;
+  border-radius: 12px;
   font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.02s ease;
+}
+
+form button:hover {
+  opacity: 0.92;
+}
+
+form button:active {
+  transform: translateY(1px);
+}
+
+.trust-row {
+  margin-top: 14px;
+  text-align: center;
+  color: #666;
+  font-size: 13px;
 }
 
 .contact-box {
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: 10px;
+  padding: 24px 20px 0;
   border-top: 1px solid #ddd;
   text-align: center;
-  font-family: Arial, sans-serif;
 }
 
-.contact-box h3 { margin-bottom: 10px; font-size: 18px; }
-.contact-box h4 { margin-top: 15px; font-size: 16px; }
-.contact-box .phone { font-size: 22px; font-weight: bold; }
-.contact-box a { text-decoration: none; color: black; }
+.contact-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-box h4 {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.contact-box .phone {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.contact-box a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 720px) {
+  .form-grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 </style>
 </head>
 
@@ -51,81 +210,159 @@ form button {
   <a href="/ru58841-vs-minoxidil.html">RU58841 vs Миноксидил</a>
   <a href="/ru58841-side-effects.html">Странични ефекти</a>
   <a href="/ru58841-results.html">Резултати</a>
+  <a href="/contact.html">Контакт</a>
 </nav>
 
-<h1>Поръчка — RU58841 10%</h1>
+<h1 style="text-align:center;margin-top:40px;">
+Поръчка — RU58841 10%
+</h1>
 
-<img src="../assets/ru58841_ai.webp" class="product-image">
-
-<div id="priceBox">Цена: <b>20.00 евро</b></div>
-
-<div class="payment-box">
-  <h3>💳 Начин на плащане</h3>
-  <p>
-    Плащането се извършва с <b>наложен платеж при получаване</b>.<br>
-    Може да заплатите както <b>в брой</b>, така и <b>с карта директно на куриера</b>.
-  </p>
+<div style="text-align:center;">
+  <img src="../assets/ru58841_ai.webp" class="product-image" alt="RU58841 10%">
 </div>
 
-<form id="orderForm"
-      action="https://api.web3forms.com/submit"
-      method="POST">
+<div class="order-shell">
+  <div class="order-card">
+    <div class="order-intro">
+      <p>Попълнете формата по-долу и изпратете поръчката си бързо и лесно.</p>
+      <div id="priceBox" class="price-badge">Цена: <b>20.00 евро</b></div>
+    </div>
 
-  <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
-  <input type="hidden" name="subject" value="🧾 Нова поръчка RU58841 10%">
-  <input type="hidden" name="from_name" value="RU58841 Hair">
-  <input type="hidden" name="redirect" value="https://ru58841hair.com/order10/thanks.html">
+    <div class="payment-box">
+      <h3>💳 Начин на плащане</h3>
+      <p>
+        Плащането се извършва с <b>наложен платеж при получаване</b>.<br>
+        Може да заплатите както <b>в брой</b>, така и <b>с карта директно на куриера</b>.
+      </p>
+    </div>
 
-  <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+    <form id="orderForm"
+          action="https://api.web3forms.com/submit"
+          method="POST">
 
-  <!-- Продукт -->
-  <input type="hidden" name="product" value="RU58841 10%">
+      <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+      <input type="hidden" name="subject" value="🧾 Нова поръчка RU58841 10%">
+      <input type="hidden" name="from_name" value="RU58841 Hair">
+      <input type="hidden" name="redirect" value="https://ru58841hair.com/order10/thanks.html">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+      <input type="hidden" name="product" value="RU58841 10%">
 
-  <h2>1. Количество</h2>
-  <select name="qty" id="qtySelect" required>
-    <option value="1">1 брой</option>
-    <option value="2">2 броя</option>
-    <option value="3">3 броя</option>
-  </select>
+      <div class="form-section">
+        <h2>1. Количество</h2>
+        <p class="form-help">Изберете желаното количество. Цената се актуализира автоматично.</p>
 
-  <h2>2. Тип доставка</h2>
-  <select name="delivery" id="delivery" required>
-    <option value="office">До офис на куриера</option>
-    <option value="address">До адрес</option>
-  </select>
+        <label for="qtySelect">Количество</label>
+        <select name="qty" id="qtySelect" required>
+          <option value="1">1 брой</option>
+          <option value="2">2 броя</option>
+          <option value="3">3 броя</option>
+        </select>
+      </div>
 
-  <div id="officeField">
-    <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
+      <div class="form-section">
+        <h2>2. Тип доставка</h2>
+        <p class="form-help">Изберете дали предпочитате доставка до офис или до адрес.</p>
+
+        <label for="delivery">Доставка</label>
+        <select name="delivery" id="delivery" required>
+          <option value="office">До офис на куриера</option>
+          <option value="address">До адрес</option>
+        </select>
+
+        <div id="officeField">
+          <label for="officeInput">Офис на куриер</label>
+          <input type="text" id="officeInput" placeholder="Офис на куриер (Спиди/Еконт)">
+        </div>
+
+        <div id="homeField" class="hidden">
+          <label for="homeInput">Адрес за доставка</label>
+          <input type="text" id="homeInput" placeholder="Адрес за доставка">
+        </div>
+
+        <input type="hidden" name="address" id="realAddress">
+      </div>
+
+      <div class="form-section">
+        <h2>3. Контакт</h2>
+        <p class="form-help">Данните са необходими за потвърждение и доставка.</p>
+
+        <div class="form-grid two">
+          <div>
+            <label for="nameField">Име и фамилия</label>
+            <input id="nameField" type="text" name="name" placeholder="Име и фамилия" required>
+          </div>
+          <div>
+            <label for="phoneField">Телефон</label>
+            <input id="phoneField" type="tel" name="phone" placeholder="Телефон" required>
+          </div>
+        </div>
+
+        <label for="emailField">Email</label>
+        <input id="emailField" type="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="form-section">
+        <h2>4. NFT Бележка (по желание)</h2>
+        <p class="form-help">Ако желаете безплатна NFT бележка, изберете „Да“ и въведете Polygon wallet.</p>
+
+        <label for="nftSelect">NFT бележка</label>
+        <select name="nft" id="nftSelect">
+          <option value="no">Без NFT</option>
+          <option value="yes">Желая NFT бележка</option>
+        </select>
+
+        <div id="walletWrap" class="hidden">
+          <label for="walletField">Polygon wallet</label>
+          <input type="text" id="walletField" name="wallet" placeholder="Polygon wallet (0x...)">
+        </div>
+
+        <div class="note-box">
+          NFT бележката е по избор и не променя цената на поръчката.
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit">Изпрати поръчката</button>
+        <div class="trust-row">
+          Бърза заявка • Без регистрация • Потвърждение по телефон
+        </div>
+      </div>
+    </form>
   </div>
-
-  <div id="homeField" class="hidden">
-    <input type="text" id="homeInput" placeholder="Адрес за доставка">
-  </div>
-
-  <input type="hidden" name="address" id="realAddress">
-
-  <h2>3. Контакт</h2>
-  <input type="text" name="name" placeholder="Име и фамилия" required>
-  <input type="tel" name="phone" placeholder="Телефон" required>
-  <input type="email" name="email" placeholder="Email" required>
-
-  <h2>4. NFT Бележка (по желание)</h2>
-  <select name="nft" id="nftSelect">
-    <option value="no">Без NFT</option>
-    <option value="yes">Желая NFT бележка</option>
-  </select>
-
-  <input type="text" id="walletField" name="wallet" class="hidden" placeholder="Polygon wallet (0x...)">
-
-  <button type="submit">Изпрати поръчката</button>
-</form>
-
-<div class="contact-box">
-  <h3>📞 Телефон за контакт</h3>
-  <p class="phone"><a href="tel:0878914807">0878 914 807</a></p>
-  <h4>🕒 Работно време</h4>
-  <p>Понеделник – Петък: 09:00 – 18:00</p>
 </div>
+
+<div class="section">
+  <div class="contact-box">
+    <h3>📞 Телефон за контакт</h3>
+    <p class="phone"><a href="tel:0878914807">0878 914 807</a></p>
+    <h4>🕒 Работно време</h4>
+    <p>Понеделник – Петък: 09:00 – 18:00</p>
+  </div>
+</div>
+
+<footer style="margin-top:60px;text-align:center;color:#999;font-size:12px;line-height:1.6;">
+  <div>
+    <a href="/index.html" style="color:#999;text-decoration:none;">Начало</a> •
+    <a href="/how-it-works.html" style="color:#999;text-decoration:none;">Как действа</a> •
+    <a href="/ru58841-side-effects.html" style="color:#999;text-decoration:none;">Странични ефекти</a> •
+    <a href="/ru58841-results.html" style="color:#999;text-decoration:none;">Резултати</a> •
+    <a href="/ru58841-vs-minoxidil.html" style="color:#999;text-decoration:none;">RU58841 vs Миноксидил</a> •
+    <a href="/privacy.html" style="color:#999;text-decoration:none;">Политика</a> •
+    <a href="/contact.html" style="color:#999;text-decoration:none;">Контакт</a>
+  </div>
+
+  <div style="margin-top:14px;">
+    Част от мрежата сайтове на
+    <a href="https://minoxidilbg.com" target="_blank" rel="noopener"
+       style="color:#999;text-decoration:none;font-weight:bold;">
+       MinoxidilBG.com (от 2009 г.)
+    </a>
+  </div>
+
+  <div style="margin-top:10px;">
+    © 2025 ru58841hair.com
+  </div>
+</footer>
 
 <script>
 const qtySelect = document.getElementById("qtySelect");
@@ -137,6 +374,7 @@ const officeInput = document.getElementById("officeInput");
 const homeInput = document.getElementById("homeInput");
 const realAddress = document.getElementById("realAddress");
 const nftSelect = document.getElementById("nftSelect");
+const walletWrap = document.getElementById("walletWrap");
 const walletField = document.getElementById("walletField");
 
 function updatePrice() {
@@ -152,7 +390,7 @@ function updateDeliveryFields() {
 }
 
 function updateWalletField() {
-  walletField.classList.toggle("hidden", nftSelect.value !== "yes");
+  walletWrap.classList.toggle("hidden", nftSelect.value !== "yes");
   if (nftSelect.value !== "yes") {
     walletField.value = "";
   }
